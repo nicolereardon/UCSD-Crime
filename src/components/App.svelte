@@ -27,7 +27,7 @@
 </script>
 
 <main on:click={incrementpage}>
-  <h1>Svelte template</h1>
+  <h1>DSC106 Final Project Prototype</h1>
 
   <p>Write your HTML here</p>
   <p>Tada!</p>
