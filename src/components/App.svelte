@@ -1,28 +1,31 @@
 <script>
   import P1 from '../components/p1.svelte';
   import P2 from '../components/p2.svelte';
-
-  import * as d3 from 'd3';
-  import { onMount } from 'svelte';
+  import Map from "./Map.svelte";
 
   let counter = 1;
+  let isOverButton = false;
 
   function page1(){
-    counter = 0
+    counter = 1;
   }
 
   function page2(){
-    counter = 1
+    counter = 2;
+  }
+
+  function page3(){
+    counter = 3;
   }
 
   function incrementpage(){
-    if (counter < 2) {
-      counter = counter + 1
+    if (!isOverButton) {
+      counter += 1;
     }
   }
 
   $: {
-    console.log(counter)
+    console.log(counter);
   }
 </script>
 
@@ -36,10 +39,13 @@
       <P1 />
   {:else if counter===2}
       <P2 />
+  {:else if counter===3}
+    <Map /> 
   {/if}
 
-  <button type="button" on:click={page1}> Page 1</button>
-  <button type="button" on:click={page2}> Page 2</button>
+  <button type="button" on:click={page1} on:mouseenter={() => isOverButton = true} on:mouseleave={() => isOverButton = false}> Page 1</button>
+  <button type="button" on:click={page2} on:mouseenter={() => isOverButton = true} on:mouseleave={() => isOverButton = false}> Page 2</button>
+  <button type="button" on:click={page3} on:mouseenter={() => isOverButton = true} on:mouseleave={() => isOverButton = false}> Page 3</button>
 </main>
 
 <style>
