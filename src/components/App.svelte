@@ -8,11 +8,17 @@
   let counter = 1;
 
   function page1(){
-    counter = 1
+    counter = 0
   }
 
   function page2(){
-    counter = 2
+    counter = 1
+  }
+
+  function incrementpage(){
+    if (counter < 2) {
+      counter = counter + 1
+    }
   }
 
   $: {
@@ -20,15 +26,15 @@
   }
 </script>
 
-<main>
+<main on:click={incrementpage}>
   <h1>Svelte template</h1>
 
   <p>Write your HTML here</p>
   <p>Tada!</p>
 
-  {#if counter==1}
+  {#if counter===1}
       <P1 />
-  {:else if counter==2}
+  {:else if counter===2}
       <P2 />
   {/if}
 
