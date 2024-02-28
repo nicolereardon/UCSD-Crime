@@ -1,5 +1,23 @@
 <script>
-  // Write your JS here, or import other files
+  import P1 from '../components/p1.svelte';
+  import P2 from '../components/p2.svelte';
+
+  import * as d3 from 'd3';
+  import { onMount } from 'svelte';
+
+  let counter = 1;
+
+  function page1(){
+    counter = 1
+  }
+
+  function page2(){
+    counter = 2
+  }
+
+  $: {
+    console.log(counter)
+  }
 </script>
 
 <main>
@@ -7,6 +25,15 @@
 
   <p>Write your HTML here</p>
   <p>Tada!</p>
+
+  {#if counter==1}
+      <P1 />
+  {:else if counter==2}
+      <P2 />
+  {/if}
+
+  <button type="button" on:click={page1}> Page 1</button>
+  <button type="button" on:click={page2}> Page 2</button>
 </main>
 
 <style>
