@@ -1,44 +1,33 @@
 <script>
-    import mapboxgl from "mapbox-gl";
-    import { onMount, onDestroy } from "svelte";
+  import { onMount, onDestroy } from "svelte";
+  import mapboxgl from "mapbox-gl";
 
-    let map;
-    let mapContainer;
-    let lng, lat, zoom;
+  let map;
 
-    lng = 32.8812;
-    lat = 32.8812;
-    zoom = 9;
+  onMount(() => {
+    mapboxgl.accessToken = "pk.eyJ1Ijoia3NrYW5la28iLCJhIjoiY2xzZm4ycm01MGtjYTJqcHFsMXl1enNjcCJ9.20jJnxwrWnDVKl-EZOGVew";
+    map = new mapboxgl.Map({
+      container: "map",
+      style: "mapbox://styles/mapbox/light-v11",
+      center: [-71.0942, 42.3601],
+      zoom: 13,
+      minZoom: 12,
+      maxZoom: 15,
+    });
+  });
 
-    onMount(() => {
-    const initialState = { lng: lng, lat: lat, zoom: zoom };
-
-    mapboxgl.accessToken = "pk.eyJ1IjoiYmFzb243NyIsImEiOiJjbHNqcTVnam4xbWk4MnFubjlxbDZ6emxyIn0.LrXfvcHh7ksjHGLXAyrgZA";
-	const map = new mapboxgl.Map({
-		container: mapContainer,
-		style: "mapbox://styles/mapbox/light-v11", 
-		center: [initialState.lng, initialState.lat],
-        zoom: initialState.zoom,
-		minZoom: 12,
-		maxZoom: 15,
-	});
-});
-
-onDestroy(() => {
-  map.remove();
-});
-
+  onDestroy(() => {
+    map.remove();
+  });
 </script>
 
-<div class="map-wrap">
-    Page 3 Stuff
-  <div class="map" bind:this={mapContainer} />
-</div>
+<div id="map" class="map"></div>
 
 <style>
-    .map {
-     position: absolute;
-     width: 100%;
-     height: 100%;
-    }
+  /* Write your CSS here */
+  .map {
+    position: relative;
+    width: 100%;
+    height: 400px;
+  }
 </style>

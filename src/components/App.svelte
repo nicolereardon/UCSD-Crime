@@ -35,13 +35,17 @@
   <p>Write your HTML here</p>
   <p>Tada!</p>
 
-  {#if counter===1}
-      <P1 />
-  {:else if counter===2}
-      <P2 />
-  {:else if counter===3}
-    <Map /> 
-  {/if}
+  <div class="info-box">
+    {#if counter===1}
+        <P1 />
+    {:else if counter===2}
+        <P2 />
+    {:else if counter===3}
+      <div>
+        <Map /> 
+      </div>
+    {/if}
+  </div>
 
   <button type="button" on:click={page1} on:mouseenter={() => isOverButton = true} on:mouseleave={() => isOverButton = false}> Page 1</button>
   <button type="button" on:click={page2} on:mouseenter={() => isOverButton = true} on:mouseleave={() => isOverButton = false}> Page 2</button>
@@ -50,4 +54,11 @@
 
 <style>
   /* Write your CSS here */
+  .info-box {
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
 </style>
