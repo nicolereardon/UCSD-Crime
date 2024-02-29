@@ -1,6 +1,7 @@
 <script>
-  import P1 from '../components/p1.svelte';
+
   import P2 from '../components/p2.svelte';
+  import P3 from '../components/p3.svelte';
   import Map from "./Map.svelte";
 
   let counter = 1;
@@ -38,13 +39,11 @@
 
   <div class="info-box">
     {#if counter===1}
-        <P1 />
+        <Map />
     {:else if counter===2}
         <P2 />
     {:else if counter===3}
-      <div>
-        <Map /> 
-      </div>
+        <P3 />
     {/if}
   </div>
 
