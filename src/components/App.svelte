@@ -55,7 +55,7 @@
 <style>
   /* Write your CSS here */
   .info-box {
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     margin-left: 20px;
     margin-right: 20px;
     padding: 10px;
