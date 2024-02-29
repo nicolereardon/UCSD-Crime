@@ -2,7 +2,7 @@
 
   import { onMount } from 'svelte';
   import * as d3 from 'd3';
-  import P2 from '../components/p2.svelte';
+  import Loc_bd from '../components/loc_bd.svelte';
   import P3 from '../components/p3.svelte';
   import Map from "./Map.svelte";
 
@@ -45,7 +45,6 @@
 
   function page1(){
     counter = 1;
-    console.log(data)
   }
 
   function page2(){
@@ -78,7 +77,7 @@
     {#if counter===1}
         <Map />
     {:else if counter===2}
-        <P2 />
+        <Loc_bd {data} />
     {:else if counter===3}
         <P3 />
     {/if}
