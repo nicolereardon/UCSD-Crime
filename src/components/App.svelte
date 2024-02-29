@@ -33,7 +33,8 @@
   <h1>DSC106 Final Project Prototype</h1>
 
   <p>Write your HTML here</p>
-  <p>Tada!</p>
+  <a href="Writeup.html" target="_blank"> Click here for Writeup!</a>
+
 
   <div class="info-box">
     {#if counter===1}
@@ -55,6 +56,7 @@
 <style>
   /* Write your CSS here */
   .info-box {
+    margin-top: 20px;
     margin-bottom: 50px;
     margin-left: 20px;
     margin-right: 20px;
