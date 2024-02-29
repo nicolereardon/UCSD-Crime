@@ -20,7 +20,7 @@
 
   function incrementpage(){
     if (!isOverButton) {
-      counter += 1;
+      return;
     }
   }
 
