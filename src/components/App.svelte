@@ -7,6 +7,7 @@
   import Map from "./Map.svelte";
 
   let data = [];
+  let map_data = [];
   let counter = 1;
   let isOverButton = false;
 
@@ -35,12 +36,21 @@
         };
       });
 
+      const res2 = await fetch('map_data.csv');
+      const csv2 = await res2.text();
+      map_data = d3.csvParse(csv2, (d) => {
+        return {
+          map_group: d.map_group,
+          longitude: +d.longitude,
+          latitude: +d.latitude,
+          count: +d.count
+        };
+      });
+      console.log(map_data);
     } catch (error) {
       console.error('Data loading error:', error);
     }
   });
-
-
 
 
   function page1(){
@@ -75,7 +85,7 @@
 
   <div class="info-box">
     {#if counter===1}
-        <Map />
+        <Map {map_data} />
     {:else if counter===2}
         <Loc_bd {data} />
     {:else if counter===3}
