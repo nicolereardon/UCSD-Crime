@@ -9,16 +9,13 @@
     map = new mapboxgl.Map({
       container: "map",
       style: "mapbox://styles/mapbox/light-v11",
-      center: [-71.0942, 42.3601],
+      center: [-117.23185272044901, 32.87830699468673],
       zoom: 13,
       minZoom: 12,
       maxZoom: 15,
     });
   });
 
-  onDestroy(() => {
-    map.remove();
-  });
 </script>
 
 <div id="map" class="map"></div>
