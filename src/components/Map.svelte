@@ -4,7 +4,6 @@
   import * as d3 from "d3";
 
   let map;
-  let tooltip;
   export let map_data;
 
   onMount(() => {
@@ -20,7 +19,6 @@
     
     map.on("load", () => {
       addCircleLayer();
-      setupTooltip();
     });
   });
 
@@ -79,5 +77,5 @@
     width: 100%;
     height: 400px;
   }
-  
+
 </style>
