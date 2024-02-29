@@ -1,14 +1,51 @@
 <script>
 
+  import { onMount } from 'svelte';
+  import * as d3 from 'd3';
   import P2 from '../components/p2.svelte';
   import P3 from '../components/p3.svelte';
   import Map from "./Map.svelte";
 
+  let data = [];
   let counter = 1;
   let isOverButton = false;
 
+  onMount(async () => {
+    try {
+      const res = await fetch('final_data.csv');
+      const csv = await res.text();
+      data = d3.csvParse(csv, (d) => {
+        return {
+          Key: +d.Key,
+          AlertCategory: d.AlertCategory,
+          DateOfResponse: d.DateOfResponse,
+          TimeOfResponse: d.TimeOfResponse,
+          DateOfCrime: d.DateOfCrime,
+          TimeOfCrime: d.TimeOfCrime,
+          CrimeCategory: d.CrimeCategory,
+          LocationOfCrime: d.LocationOfCrime,
+          SuspectDescription: d.SuspectDescription,
+          SuspectInCustody: d.SuspectInCustody,
+          Update: d.Update,
+          Link: d.Link,
+          MapGroup: d.MapGroup,
+          coords: d.coords,
+          latitude: +d.latitude,
+          longitude: +d.longitude
+        };
+      });
+
+    } catch (error) {
+      console.error('Data loading error:', error);
+    }
+  });
+
+
+
+
   function page1(){
     counter = 1;
+    console.log(data)
   }
 
   function page2(){
