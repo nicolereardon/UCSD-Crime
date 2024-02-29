@@ -22,12 +22,6 @@
     });
   });
 
-  onDestroy(() => {
-    if (tooltip) {
-      tooltip.remove();
-    }
-  });
-
   function addCircleLayer() {
     map.addSource("mapGroups", {
       type: "geojson",
