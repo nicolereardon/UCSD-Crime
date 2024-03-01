@@ -6,11 +6,13 @@
   import Crime_bd from '../components/crime_bd.svelte';
   import P3 from '../components/p3.svelte';
   import Map from "./Map.svelte";
+  import { fade } from 'svelte/transition';
 
   let data = [];
   let map_data = [];
   let counter = 1;
   let isOverButton = false;
+  let showIntro = true;
 
   onMount(async () => {
     try {
@@ -37,7 +39,10 @@
         };
       });
 
-
+      // Hide the intro screen after a delay (e.g., 5 seconds)
+      setTimeout(() => {
+        showIntro = false;
+      }, 5000);
     } catch (error) {
       console.error('Data loading error:', error);
     }
@@ -68,24 +73,33 @@
 </script>
 
 <main on:click={incrementpage}>
-  <h1>DSC106 Final Project Prototype</h1>
+  {#if showIntro}
+    <div in:fade={{ duration: 500, delay: 0 }} out:fade={{ duration: 250, delay: 0 }} class = "intro_page">
+      <h1 class="intro_text">Want to stay safe at UCSD?</h1>
+      <button class="learn_more_button" on:click={() => (showIntro = false)}>Learn more</button>
+    </div>
+  {:else}
+  <div in:fade={{ duration: 250, delay: 1000 }} class = "mainpages">
+    <h1>DSC106 Final Project Prototype</h1>
 
-  <a href="Writeup.html" target="_blank"> Click here for Writeup!</a>
+    <a href="Writeup.html" target="_blank"> Click here for Writeup!</a>
 
 
-  <div class="info-box">
-    {#if counter===1}
-        <Map {data} />
-    {:else if counter===2}
-        <Crime_bd {data} />
-    {:else if counter===3}
-        <P3 {data}/>
-    {/if}
+    <div class="info-box">
+      {#if counter===1}
+          <Map {data} />
+      {:else if counter===2}
+          <Crime_bd {data} />
+      {:else if counter===3}
+          <P3 {data}/>
+      {/if}
+    </div>
+
+    <button type="button" on:click={page1} on:mouseenter={() => isOverButton = true} on:mouseleave={() => isOverButton = false}> Page 1</button>
+    <button type="button" on:click={page2} on:mouseenter={() => isOverButton = true} on:mouseleave={() => isOverButton = false}> Page 2</button>
+    <button type="button" on:click={page3} on:mouseenter={() => isOverButton = true} on:mouseleave={() => isOverButton = false}> Page 3</button>
   </div>
-
-  <button type="button" on:click={page1} on:mouseenter={() => isOverButton = true} on:mouseleave={() => isOverButton = false}> Page 1</button>
-  <button type="button" on:click={page2} on:mouseenter={() => isOverButton = true} on:mouseleave={() => isOverButton = false}> Page 2</button>
-  <button type="button" on:click={page3} on:mouseenter={() => isOverButton = true} on:mouseleave={() => isOverButton = false}> Page 3</button>
+  {/if}
 </main>
 
 <style>
@@ -96,5 +110,33 @@
     margin-right: 20px;
     padding: 10px;
     border: 1px solid #ccc;
+  }
+
+  .intro_page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Set to 100% of the viewport height */
+  }
+
+  .intro_text {
+    font-size: 2em; /* Adjust the font size as needed */
+    text-align: center;
+    margin-bottom: 20px; /* Add space between h1 and button */
+  }
+
+  .learn_more_button {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 25px; /* Adjust the border-radius to make it oval */
+    padding: 10px 20px; /* Adjust padding as needed */
+    font-size: 1.2em; /* Adjust the font size as needed */
+    cursor: pointer;
+  }
+
+  .learn_more_button:hover {
+    background-color: #333; /* Darken the background on hover if desired */
   }
 </style>
