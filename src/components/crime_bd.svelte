@@ -91,7 +91,7 @@
             .attr('text-anchor', 'middle')
 			.attr('font-weight', "bold")
             .style('font-size', '20px')
-            .text('Taking a look at Crime Categores');
+            .text('Taking a look at Crime Categories');
     }
 </script>
 

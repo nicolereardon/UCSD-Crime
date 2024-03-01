@@ -6,11 +6,12 @@
   import Crime_bd from '../components/crime_bd.svelte';
   import P3 from '../components/p3.svelte';
   import Map from "./Map.svelte";
+  import Map_bg from "./Map_bg.svelte";
   import { fade } from 'svelte/transition';
 
   let data = [];
   let map_data = [];
-  let counter = 1;
+  let counter = 0;
   let isOverButton = false;
   let showIntro = true;
 
@@ -42,6 +43,7 @@
       // Hide the intro screen after a delay (e.g., 5 seconds)
       setTimeout(() => {
         showIntro = false;
+        counter += 1;
       }, 5000);
     } catch (error) {
       console.error('Data loading error:', error);
@@ -52,17 +54,18 @@
   function page1(){
     counter = 1;
   }
-
   function page2(){
     counter = 2;
   }
-
   function page3(){
     counter = 3;
   }
 
   function incrementpage(){
     if (!isOverButton) {
+      if (counter !== 3) {
+        counter += 1
+      }
       return;
     }
   }
@@ -77,6 +80,7 @@
     <div in:fade={{ duration: 500, delay: 0 }} out:fade={{ duration: 250, delay: 0 }} class = "intro_page">
       <h1 class="intro_text">Want to stay safe at UCSD?</h1>
       <button class="learn_more_button" on:click={() => (showIntro = false)}>Learn more</button>
+      <Map_bg {data} />
     </div>
   {:else}
   <div in:fade={{ duration: 250, delay: 1000 }} class = "mainpages">
@@ -85,19 +89,27 @@
     <a href="Writeup.html" target="_blank"> Click here for Writeup!</a>
 
 
-    <div class="info-box">
-      {#if counter===1}
-          <Map {data} />
-      {:else if counter===2}
-          <Crime_bd {data} />
-      {:else if counter===3}
-          <P3 {data}/>
-      {/if}
-    </div>
+    {#if counter < 1}
+      <h1>We might not need this page but just in case</h1>
+      //maybe go back to intro
+    {/if}
+  
+    {#if counter >= 1}
+      <div class="info-box">
+        {#if counter===1}
+            <Map {data} />
+        {:else if counter===2}
+            <Crime_bd {data} />
+        {:else if counter===3}
+            <P3 {data}/>
+        {/if}
+      </div>
 
     <button type="button" on:click={page1} on:mouseenter={() => isOverButton = true} on:mouseleave={() => isOverButton = false}> Page 1</button>
     <button type="button" on:click={page2} on:mouseenter={() => isOverButton = true} on:mouseleave={() => isOverButton = false}> Page 2</button>
     <button type="button" on:click={page3} on:mouseenter={() => isOverButton = true} on:mouseleave={() => isOverButton = false}> Page 3</button>
+    {/if}
+
   </div>
   {/if}
 </main>

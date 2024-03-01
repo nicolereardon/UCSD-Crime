@@ -17,7 +17,7 @@
     map = new mapboxgl.Map({
       container: "map",
       style: "mapbox://styles/mapbox/light-v11",
-      center: [-117.23485272044901, 32.87930699468673],
+      center: [-117.23685272044901, 32.87930699468673],
       zoom: 13.5,
       minZoom: 12,
       maxZoom: 25,
@@ -92,7 +92,7 @@ const features = map_data.map(d => {
         ["linear"],
         ["get", "count"],
         0, 5,
-        d3.max(map_data, d => d.count), 20
+        d3.max(map_data, d => d.count), 30
       ],
       "circle-color": "steelblue",
       "circle-opacity": 0.7
