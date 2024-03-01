@@ -2,7 +2,8 @@
 
   import { onMount } from 'svelte';
   import * as d3 from 'd3';
-  import Loc_bd from '../components/loc_bd.svelte';
+  //import Loc_bd from '../components/loc_bd.svelte';
+  import Crime_bd from '../components/crime_bd.svelte';
   import P3 from '../components/p3.svelte';
   import Map from "./Map.svelte";
 
@@ -35,21 +36,6 @@
           longitude: +d.longitude
         };
       });
-
-      //we used to have map_data a condensed version of data, but this will actually create problems 
-      //once we try and add the pie chart hover, so I think I'll instead pass data into Map and make Map work it out.
-      
-      const res2 = await fetch('map_data.csv');
-      const csv2 = await res2.text();
-      map_data = d3.csvParse(csv2, (d) => {
-        return {
-          map_group: d.map_group,
-          longitude: +d.longitude,
-          latitude: +d.latitude,
-          count: +d.count
-        };
-      });
-      //console.log(map_data);
 
 
     } catch (error) {
@@ -91,7 +77,7 @@
     {#if counter===1}
         <Map {data} />
     {:else if counter===2}
-        <Loc_bd {data} />
+        <Crime_bd {data} />
     {:else if counter===3}
         <P3 {data}/>
     {/if}
