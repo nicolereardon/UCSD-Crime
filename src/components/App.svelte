@@ -99,9 +99,9 @@
     {#if counter >= 1}
       <div class="info-box">
         {#if counter===1}
-            <Map {data} />
-        {:else if counter===2}
             <Crime_bd {data} />
+        {:else if counter===2}
+            <Map {data} />
         {:else if counter===3}
             <P3 {data}/>
         {/if}
