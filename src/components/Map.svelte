@@ -14,7 +14,7 @@
       center: [-117.23185272044901, 32.87830699468673],
       zoom: 13,
       minZoom: 12,
-      maxZoom: 15,
+      maxZoom: 25,
     });
     
     map.on("load", () => {
@@ -69,7 +69,7 @@
   .map {
     position: relative;
     width: 100%;
-    height: 400px;
+    height: 600px;
   }
 
 </style>
