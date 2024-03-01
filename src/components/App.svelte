@@ -93,7 +93,7 @@
     {:else if counter===2}
         <Loc_bd {data} />
     {:else if counter===3}
-        <P3 />
+        <P3 {data}/>
     {/if}
   </div>
 
