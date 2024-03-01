@@ -43,7 +43,9 @@
       // Hide the intro screen after a delay (e.g., 5 seconds)
       setTimeout(() => {
         showIntro = false;
-        counter += 1;
+        if (counter < 1) {
+          counter = 1;
+        }
       }, 5000);
     } catch (error) {
       console.error('Data loading error:', error);
