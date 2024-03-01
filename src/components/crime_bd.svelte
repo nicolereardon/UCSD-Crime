@@ -9,6 +9,38 @@
     let crimeData = [];
     let barData = [];
 
+
+    //We will def def want to change what I have below to reflect what we actually want, using this simply as a placeholder
+    //also still has blank value lol
+    let crimeText = {
+    'Burglary': 'Burglary is a crime of breaking and entering a building illegally with the intent to commit a crime, typically theft.',
+    'Arson': 'Arson involves intentionally setting fire to property, often with criminal intent.',
+    'Robbery': 'Robbery is the act of taking or attempting to take something from someone by force or threat of force.',
+    'Attempted Burglary': 'Attempted Burglary refers to an unsuccessful attempt to break into a building with the intent to commit a crime.',
+    'Aggravated Assault': 'Aggravated Assault is a more severe form of assault, often involving a weapon or causing serious injury.',
+    'Sexual Battery': 'Sexual Battery is a criminal offense involving non-consensual sexual touching or penetration.',
+    'Suspicious Activity': 'Suspicious Activity refers to behavior that raises concerns and may indicate criminal or harmful intent.',
+    'Avoid Area': 'Avoid Area warnings suggest staying away from a specific location due to potential danger or ongoing incidents.',
+    'Indecent Exposure': 'Indecent Exposure involves the exposure of one\'s genitals in a public place, often with lewd intent.',
+    'Motor Vehicle Theft': 'Motor Vehicle Theft is the unauthorized taking of someone\'s vehicle with the intent to permanently deprive them of it.',
+    'Sexual Assault': 'Sexual Assault is a broader term that encompasses various non-consensual sexual acts.',
+    'Attempted Robbery': 'Attempted Robbery refers to an unsuccessful attempt to take something from someone by force or threat of force.',
+    'Weapons Law Violation': 'Weapons Law Violation involves the violation of laws related to the possession or use of weapons.',
+    'Brandishing of a Firearm': 'Brandishing of a Firearm is the act of displaying a firearm in a threatening manner.',
+    'Attempted Motor Vehicle Theft': 'Attempted Motor Vehicle Theft is an unsuccessful attempt to steal a motor vehicle.',
+    'Stalking': 'Stalking is a pattern of unwanted attention, harassment, or other behavior intended to create fear or distress.',
+    'Attempted E-Bike / Motor Vehicle Theft': 'Attempted E-Bike / Motor Vehicle Theft is an unsuccessful attempt to steal an e-bike or motor vehicle.',
+    '': 'This category may indicate missing or incomplete information about the reported crime.',
+    'Intimidation - Sexual Orientation Bias': 'Intimidation - Sexual Orientation Bias involves actions intended to intimidate or harm someone based on their sexual orientation.',
+    'Forced Entry Into Occupied Residence': 'Forced Entry Into Occupied Residence refers to entering a residence forcefully while it is occupied.',
+    'Attempted Strong-Arm Robbery': 'Attempted Strong-Arm Robbery is an unsuccessful attempt to forcefully take something from someone without a weapon.',
+    'Sexual Assault Unknown Perpetrator': 'Sexual Assault by an Unknown Perpetrator involves non-consensual sexual acts where the perpetrator is unidentified.',
+    'Information on Jacobs Medical Center Incident': 'This category may contain information about an incident at the Jacobs Medical Center.',
+    'Trespassing in an Occupied Residence': 'Trespassing in an Occupied Residence is the unauthorized entry into an occupied residence.',
+    'Office Building Burglaries': 'Office Building Burglaries involve unauthorized entry into office buildings with the intent to commit a crime.',
+    'Missing Juvenile At Risk': 'Missing Juvenile At Risk indicates the disappearance of a juvenile who may be in danger.',
+};
+
     let svg;
 
     onMount(() => {
@@ -47,15 +79,18 @@
         y.domain([0, d3.max(barData, d => d.count)]);
 
         svg
-            .selectAll('.bar')
-            .data(barData)
-            .enter()
-            .append('rect')
-            .attr('class', 'bar')
-            .attr('x', d => x(d.crime))
-            .attr('width', x.bandwidth())
-            .attr('y', d => y(d.count))
-            .attr('height', d => height - y(d.count));
+    .selectAll('.bar')
+    .data(barData)
+    .enter()
+    .append('rect')
+    .attr('class', 'bar')
+    .attr('x', d => x(d.crime))
+    .attr('width', x.bandwidth())
+    .attr('y', d => y(d.count))
+    .attr('height', d => height - y(d.count))
+    .attr('fill', 'steelblue') // Set the fill color
+    .on('mouseover', handleMouseOver)
+    .on('mouseout', handleMouseOut);
 
         svg
             .append('g')
@@ -92,13 +127,50 @@
 			.attr('font-weight', "bold")
             .style('font-size', '20px')
             .text('Taking a look at Crime Categories');
+    
+
+    function handleMouseOver(event, d) {
+    // Show tooltip
+    const tooltip = document.getElementById('tooltip');
+    tooltip.style.opacity = 0.9;
+
+    // Adjust the color of the hovered bar
+    d3.select(this).attr('fill', 'orange'); // Adjust the color as needed
+
+    // Position the tooltip slightly to the right of the mouse
+    const [x, y] = d3.pointer(event);
+    tooltip.style.left = x + 10 + 'px';
+    tooltip.style.top = y + 'px';
+
+    // Update tooltip content based on the hovered data
+    tooltip.innerHTML = `<strong>${d.crime}</strong>: ${d.count} occurrences<br>${crimeText[d.crime] || 'Description not available'}`;
+}
+
+    function handleMouseOut(event, d) {
+        // Hide tooltip
+        const tooltip = document.getElementById('tooltip');
+        tooltip.style.opacity = 0;
+
+        // Restore the original color of the bar
+        d3.select(this).attr('fill', 'steelblue'); // Restore the original color
+    }
+
     }
 </script>
 
 <style>
-    
+    .tooltip {
+        position: absolute;
+        background-color: white;
+        border: 1px solid #ccc;
+        padding: 10px;
+        pointer-events: none; /* Ensure tooltip doesn't interfere with mouse events on bars */
+        font-size: 14px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
 </style>
 
 <div id="bar-chart-container">
     <!-- svg will be appended here -->
+    <div id="tooltip" class="tooltip" style="opacity: 0;"></div>
 </div>
