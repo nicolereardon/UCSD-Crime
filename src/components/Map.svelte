@@ -10,6 +10,7 @@
   let svg;
   let categoryData = [];
   let pieData = [];
+  let currentMapGroup = null;
 
   onMount(() => {
     mapboxgl.accessToken = "pk.eyJ1Ijoia3NrYW5la28iLCJhIjoiY2xzZm4ycm01MGtjYTJqcHFsMXl1enNjcCJ9.20jJnxwrWnDVKl-EZOGVew";
@@ -17,7 +18,7 @@
     map = new mapboxgl.Map({
       container: "map",
       style: "mapbox://styles/mapbox/light-v11",
-      center: [-117.23685272044901, 32.87930699468673],
+      center: [-117.23485272044901, 32.87930699468673],
       zoom: 13.5,
       minZoom: 12,
       maxZoom: 25,
@@ -29,7 +30,7 @@
 		
     map.on("load", () => {
       addCircleLayer();
-      createPieChart(pieData);
+      updatePieChart(pieData);
     });
   });
 
@@ -92,7 +93,7 @@ const features = map_data.map(d => {
         ["linear"],
         ["get", "count"],
         0, 5,
-        d3.max(map_data, d => d.count), 30
+        d3.max(map_data, d => d.count), 20
       ],
       "circle-color": "steelblue",
       "circle-opacity": 0.7
@@ -101,14 +102,19 @@ const features = map_data.map(d => {
 
   // Add a hover effect to display pie chart on circle hover
   map.on("mouseenter", "circleLayer", (e) => {
-    const features = map.queryRenderedFeatures(e.point, { layers: ["circleLayer"] });
+  const features = map.queryRenderedFeatures(e.point, { layers: ["circleLayer"] });
 
-    if (features.length > 0) {
-      const feature = features[0];
-      console.log("Hovered Feature:", feature);
-      showPieChart(feature.properties.map_group);
-    }
-  });
+  if (features.length > 0) {
+    const feature = features[0];
+    console.log("Hovered Feature:", feature);
+
+    // Add these console logs to check the map_group and AlertCategory
+    console.log("Hovered Map Group:", feature.properties.map_group);
+    console.log("Alert Category:", feature.properties.AlertCategory);
+
+    showPieChart(feature.properties.map_group);
+  }
+});
 
   // Reset the pie chart when mouse leaves the circle
   map.on("mouseleave", "circleLayer", () => {
@@ -117,65 +123,109 @@ const features = map_data.map(d => {
 }
 
   function showPieChart(map_group) {
-    // Code to display pie chart based on the 'map_group' value
-    // You can customize this part based on your specific requirements
+  if (currentMapGroup !== map_group) {
+    // Update the pie chart only if the hovered map group is different
+    currentMapGroup = map_group;
+
+    // Filter data for the specific map group from the original data
+    const filteredData = data.filter(d => d.MapGroup === map_group);
+
+    // Now you can create the pie chart based on the filtered data
+    const filteredPieData = d3.rollup(filteredData, v => v.length, d => d['CrimeCategory']);
+    const pieData = Array.from(filteredPieData, ([category, count]) => ({ category, count }));
+
+    // Update the pie chart with the new data
+    updatePieChart(pieData);
+
     console.log("Show Pie Chart for Map Group:", map_group);
   }
+}
 
   function hidePieChart() {
-    // Code to hide or reset the pie chart
-    // You can customize this part based on your specific requirements
+    // Reset the pie chart when mouse leaves the circle
+    currentMapGroup = null;
+    updatePieChart(pieData); // Reset to the overall crime breakdown
+
     console.log("Hide/Reset Pie Chart");
   }
 
-  function createPieChart(pieData) {
-        const margin = { top: 20, right: 20, bottom: 20, left: 20 };
-        const width = 400;
-        const height = 450;
-        const mapContainer = document.getElementById('map');
-        const mapContainerRect = mapContainer.getBoundingClientRect();
-        console.log(height)
+function createPieChart(pieData) {
+    const margin = { top: 20, right: 20, bottom: 20, left: 20 };
+    const width = 400;
+    const height = 450;
+    const mapContainer = document.getElementById('map');
+    const mapContainerRect = mapContainer.getBoundingClientRect();
+    console.log(height);
 
-        // Check if there's an existing SVG, remove it if present
-        if (svg) {
-            d3.select('#pie-chart-container svg').remove();
-        }
-
-        svg = d3
-            .select('#pie-chart-container')
-            .append('svg')
-            .attr('width', width + margin.left + margin.right)
-            .attr('height', height + margin.top + margin.bottom)
-            .append('g')
-            .attr('transform', `translate(${175},${375})`); // Center the pie chart
-
-        // Create a pie chart layout
-        const pie = d3.pie().value(d => d.count);
-
-        // Define an arc generator
-        const arc = d3.arc().outerRadius(100).innerRadius(0);
-        // Generate pie chart slices
-        const arcs = svg
-            .selectAll('arc')
-            .data(pie(pieData))
-            .enter()
-            .append('g')
-            .attr('class', 'arc');
-
-        // Append path elements for each slice
-        arcs
-            .append('path')
-            .attr('d', arc)
-            // .attr('fill', (d, i) => color(i)); // You may want to define a color scale
-
-        // Append text labels
-        arcs
-            .append('text')
-            .attr('transform', d => `translate(${arc.centroid(d)})`)
-            .attr('dy', '0.35em')
-            .attr('text-anchor', 'middle')
-            .text(d => d.data.location);
+    // Check if there's an existing SVG, remove it if present
+    if (svg) {
+        d3.select('#pie-chart-container svg').remove();
     }
+
+    svg = d3
+        .select('#pie-chart-container')
+        .append('svg')
+        .attr('width', width + margin.left + margin.right)
+        .attr('height', height + margin.top + margin.bottom)
+        .append('g')
+        .attr('transform', `translate(${175},${375})`); // Center the pie chart
+
+    // Create a pie chart layout
+    const pie = d3.pie().value(d => d.count);
+
+    // Define an arc generator
+    const arc = d3.arc().outerRadius(100).innerRadius(0);
+
+    // Generate pie chart slices
+    const arcs = svg
+        .selectAll('arc')
+        .data(pie(pieData));
+
+    console.log('Number of pie slices:', pieData.length);
+
+    // Enter
+    const enterSelection = arcs
+        .enter()
+        .append('g')
+        .attr('class', 'arc');
+
+    enterSelection
+        .append('path')
+        .attr('d', arc);
+
+    enterSelection
+        .append('text')
+        .attr('transform', d => `translate(${arc.centroid(d)})`)
+        .attr('dy', '0.35em')
+        .attr('text-anchor', 'middle')
+        .text(d => d.data.category);
+
+    // Update
+    arcs
+        .select('path')
+        .transition() // Add transition for a smoother update
+        .attr('d', arc);
+
+    arcs
+        .select('text')
+        .transition()
+        .attr('transform', d => `translate(${arc.centroid(d)})`);
+
+    // Exit
+    arcs
+        .exit()
+        .remove();
+}
+
+function updatePieChart(newPieData) {
+    console.log("Entering updatePieChart. New Pie Data:", newPieData);
+
+    // Call the createPieChart function with the updated data
+    createPieChart(newPieData);
+
+    console.log('Number of pie slices:', newPieData.length);
+    console.log("Exiting updatePieChart.");
+}
 </script>
 
 <div id='container'>
@@ -189,6 +239,7 @@ const features = map_data.map(d => {
     width: 800px;
     height: 500px;
   }
+
   #pie-chart-container {
     width: 400px; /* Adjust the width as needed */
     height: 500px;
