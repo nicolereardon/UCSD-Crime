@@ -12,6 +12,8 @@
   let pieData = [];
   let currentMapGroup = null;
 
+  const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
+
   onMount(() => {
     mapboxgl.accessToken = "pk.eyJ1Ijoia3NrYW5la28iLCJhIjoiY2xzZm4ycm01MGtjYTJqcHFsMXl1enNjcCJ9.20jJnxwrWnDVKl-EZOGVew";
 
@@ -190,15 +192,17 @@ function createPieChart(pieData) {
         .attr('class', 'arc');
 
     enterSelection
-        .append('path')
-        .attr('d', arc);
+      .append('path')
+      .attr('d', arc)
+      .attr('fill', (d, i) => colorScale(i)); // Assign colors based on index
 
     enterSelection
-        .append('text')
-        .attr('transform', d => `translate(${arc.centroid(d)})`)
-        .attr('dy', '0.35em')
-        .attr('text-anchor', 'middle')
-        .text(d => d.data.category);
+      .append('text')
+      .attr('transform', d => `translate(${arc.centroid(d)})`)
+      .attr('dy', '0.35em')
+      .attr('text-anchor', 'middle')
+      .text(d => d.data.category)
+      .style('fill', 'black'); // Text color
 
     // Update
     arcs

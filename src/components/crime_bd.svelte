@@ -88,7 +88,7 @@
     .attr('width', x.bandwidth())
     .attr('y', d => y(d.count))
     .attr('height', d => height - y(d.count))
-    .attr('fill', 'steelblue') // Set the fill color
+    .attr('fill', '#006D77')
     .on('mouseover', handleMouseOver)
     .on('mouseout', handleMouseOut);
 
@@ -135,7 +135,7 @@
     tooltip.style.opacity = 0.9;
 
     // Adjust the color of the hovered bar
-    d3.select(this).attr('fill', 'orange'); // Adjust the color as needed
+    d3.select(this).attr('fill', '#E29578'); // Adjust the color as needed
 
     // Position the tooltip slightly to the right of the mouse
     const [x, y] = d3.pointer(event);
@@ -152,7 +152,7 @@
         tooltip.style.opacity = 0;
 
         // Restore the original color of the bar
-        d3.select(this).attr('fill', 'steelblue'); // Restore the original color
+        d3.select(this).attr('fill', '#006D77'); // Restore the original color
     }
 
     }
