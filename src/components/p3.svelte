@@ -12,8 +12,8 @@
     onMount(() => {
         categoryData = d3.rollup(data, v => v.length, d => d['CrimeCategory']);
         pieData = Array.from(categoryData, ([category, count]) => ({ category, count }));
-		console.log(pieData)
-        createPieChart(pieData);
+		// console.log(pieData)
+		createPieChart(pieData);
 	});
 
 	function createPieChart(pieData) {
@@ -51,7 +51,7 @@
         arcs
             .append('path')
             .attr('d', arc)
-            .attr('fill', (d, i) => color(i)); // You may want to define a color scale
+            // .attr('fill', (d, i) => color(i)); // You may want to define a color scale
 
         // Append text labels
         arcs
@@ -61,7 +61,6 @@
             .attr('text-anchor', 'middle')
             .text(d => d.data.location);
     }
-    createPieChart(pieData);
 </script>
 
 
