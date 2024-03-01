@@ -32,7 +32,7 @@
             .attr('width', width + margin.left + margin.right)
             .attr('height', height + margin.top + margin.bottom)
             .append('g')
-            .attr('transform', `translate(${width / 2},${height / 2})`); // Center the pie chart
+            .attr('transform', `translate(${width / 3.5},${height / 1.95})`); // Center the pie chart
 
         // Create a pie chart layout
         const pie = d3.pie().value(d => d.count);
