@@ -9,6 +9,36 @@
 
     let svg;
 
+	const color = {
+		'Mesa Graduate Housing': '#E29578',
+		'Revelle': '#006D77',
+		'The Hillcrest Medical Center': '#E29578',
+		'ERC': '#006D77',
+		'Marshall': '#006D77',
+		'UC San Diego Health System': '#E29578',
+		'UCSD School of Medicine': '#E29578',
+		'Sixth': '#006D77',
+		'Seventh': '#006D77',
+		'Library Walk': '#006D77',
+		'Warren': '#006D77',
+		'Central Campus Trolley Station': '#006D77',
+		'Rita Atkinson': '#006D77',
+    	'La Jolla Shores Hotel': '#E29578',  
+    	'Trition Clubhouse': '#006D77', 
+    	'Extended Studies': '#006D77',
+    	'Pepper Canyon': '#006D77', 
+    	'UC Health Trolley Station': '#E29578', 
+    	'Scripps': '#E29578', 
+    	'Muir': '#006D77',
+    	'Sun God Lawn': '#006D77', 
+    	'Preuss School': '#E29578', 
+    	'Gilman Bridge': '#E29578'
+	};
+
+	function getColorForLoc(column) {
+		return color[column];
+	}
+
     onMount(() => {
 		const filteredData = data.filter(d => ((d.coords !== "") && (d.Update === ""))); //filter to have coord and not be an update :D
 
@@ -21,7 +51,7 @@
     function createBarChart(barData) {
         const margin = { top: 30, right: 30, bottom: 150, left: 60 };
         const width = 1300 - margin.left - margin.right;
-        const height = 600 - margin.top - margin.bottom;
+        const height = 650 - margin.top - margin.bottom;
 
         // Check if there's an existing SVG, remove it if present
         if (svg) {
@@ -51,7 +81,8 @@
             .attr('x', d => x(d.location))
             .attr('width', x.bandwidth())
             .attr('y', d => y(d.count))
-            .attr('height', d => height - y(d.count));
+            .attr('height', d => height - y(d.count))
+			.style('fill', d => getColorForLoc(d.location));
 
         svg
             .append('g')
@@ -65,7 +96,8 @@
 
 		// Add x-axis label
 		svg.append('text')
-            .attr('transform', `translate(${width / 2},${height + margin.top + 40})`) // Adjusted position
+            .attr('transform', `translate(${width / 2},${height + margin.top + 100})`) // Adjusted position to make fit
+			.attr('font-weight', "bold")
             .style('text-anchor', 'middle')
             .text('Locations');
 
@@ -75,6 +107,7 @@
             .attr('y', 0 - margin.left)
             .attr('x', 0 - height / 2)
             .attr('dy', '1em')
+			.attr('font-weight', "bold")
             .style('text-anchor', 'middle')
             .text('Frequency');
 
@@ -83,6 +116,7 @@
             .attr('x', width / 2)
             .attr('y', 0 - margin.top / 2)
             .attr('text-anchor', 'middle')
+			.attr('font-weight', "bold")
             .style('font-size', '20px')
             .text('Taking a look at Timely Warning Locations');
     }

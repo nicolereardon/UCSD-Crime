@@ -36,6 +36,9 @@
         };
       });
 
+      //we used to have map_data a condensed version of data, but this will actually create problems 
+      //once we try and add the pie chart hover, so I think I'll instead pass data into Map and make Map work it out.
+      
       const res2 = await fetch('map_data.csv');
       const csv2 = await res2.text();
       map_data = d3.csvParse(csv2, (d) => {
@@ -46,7 +49,9 @@
           count: +d.count
         };
       });
-      console.log(map_data);
+      //console.log(map_data);
+
+
     } catch (error) {
       console.error('Data loading error:', error);
     }
@@ -79,13 +84,12 @@
 <main on:click={incrementpage}>
   <h1>DSC106 Final Project Prototype</h1>
 
-  <p>Write your HTML here</p>
   <a href="Writeup.html" target="_blank"> Click here for Writeup!</a>
 
 
   <div class="info-box">
     {#if counter===1}
-        <Map {map_data} />
+        <Map {data} />
     {:else if counter===2}
         <Loc_bd {data} />
     {:else if counter===3}
@@ -99,7 +103,6 @@
 </main>
 
 <style>
-  /* Write your CSS here */
   .info-box {
     margin-top: 20px;
     margin-bottom: 50px;
