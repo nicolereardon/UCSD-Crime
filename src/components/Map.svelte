@@ -23,14 +23,14 @@
       maxZoom: 25,
     });
 
-    map.on("load", () => {
-      addCircleLayer();
-    });
-
     // for pie charts:
     categoryData = d3.rollup(data, v => v.length, d => d['CrimeCategory']);
     pieData = Array.from(categoryData, ([category, count]) => ({ category, count }));
-		createPieChart(pieData);
+		
+    map.on("load", () => {
+      addCircleLayer();
+      createPieChart(pieData);
+    });
   });
 
   function addCircleLayer() {
