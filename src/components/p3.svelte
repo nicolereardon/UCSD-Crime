@@ -1,73 +1,29 @@
 <script>
-	import * as d3 from "d3";
-	import { onMount } from 'svelte';
 
-    export let data;
-	// console.log(data)
-	let categoryData = [];
-    let pieData = [];
-
-    let svg;
-
-    onMount(() => {
-        categoryData = d3.rollup(data, v => v.length, d => d['CrimeCategory']);
-        pieData = Array.from(categoryData, ([category, count]) => ({ category, count }));
-		// console.log(pieData)
-		createPieChart(pieData);
-	});
-
-	function createPieChart(pieData) {
-        const margin = { top: 20, right: 20, bottom: 20, left: 20 };
-        const width = 1100 - margin.left - margin.right;
-        const height = 600 - margin.top - margin.bottom;
-
-        // Check if there's an existing SVG, remove it if present
-        if (svg) {
-            d3.select('#pie-chart-container svg').remove();
-        }
-
-        svg = d3
-            .select('#pie-chart-container')
-            .append('svg')
-            .attr('width', width + margin.left + margin.right)
-            .attr('height', height + margin.top + margin.bottom)
-            .append('g')
-            .attr('transform', `translate(${width / 3.5},${height / 1.95})`); // Center the pie chart
-
-        // Create a pie chart layout
-        const pie = d3.pie().value(d => d.count);
-
-        // Define an arc generator
-        const arc = d3.arc().outerRadius(Math.min(width, height) / 2 - 10).innerRadius(0);
-        // Generate pie chart slices
-        const arcs = svg
-            .selectAll('arc')
-            .data(pie(pieData))
-            .enter()
-            .append('g')
-            .attr('class', 'arc');
-
-        // Append path elements for each slice
-        arcs
-            .append('path')
-            .attr('d', arc)
-            // .attr('fill', (d, i) => color(i)); // You may want to define a color scale
-
-        // Append text labels
-        arcs
-            .append('text')
-            .attr('transform', d => `translate(${arc.centroid(d)})`)
-            .attr('dy', '0.35em')
-            .attr('text-anchor', 'middle')
-            .text(d => d.data.location);
-    }
 </script>
 
+<div>
+    <h1 class="intro_text">In the National Council for Home and Safety and Security’s 2022 Safest College Campuses in the United States report, the University of California, San Diego was ranked 476th out of 490 colleges. However, San Diego was ranked the 95th safest city out of 3,381 in California in their 2021 Safest Cities in California report. Of the 10 UCs, UCSD places 8th in safety but is in the 2nd safest city.</h1>
+    <h2 class="intro_text">What does UCSD do about crime on campus?</h2>
+    <h3 class="intro_text">From Lamine Secka, Chief of Police of the UC San Deigo Police Department (UCPD), they are committed to providing public safety through “community partnerships, innovative collaborations, and modern policing practices” which includes proper reporting of crimes.</h3>
+	<h4 class="intro_text">As required by the Clery Act, UCSD maintains the “TRITON ALERT Emergency Notification” system which is used to immediately inform the UC San Diego community upon confirmation of an emergency or dangerous situation that involves an immediate threat to the health or safety of students or employees. </h4>
+	<h5 class="intro_text">Once initiated, all UC San Diego students, faculty, and staff are notified through email and, optionally, text message of a Timely Warning or Community Alert Bulletin with a brief description of the emergency and instructions about what to do.</h5>
+	<h6 class="intro_text">Let's explore these.</h6>
+</div>
 
 <style>
-    
+	.intro_page {
+	  display: flex;
+	  flex-direction: column;
+	  justify-content: center;
+	  align-items: center;
+	  height: 100vh; /* Set to 100% of the viewport height */
+	}
+  
+	.intro_text {
+	  font-size: 20px; /* Adjust the font size as needed */
+	  text-align: center;
+	  font-family: 'Montserrat', sans-serif;
+	  margin-bottom: 20px; /* Add space between h1 and button */
+	}
 </style>
-
-<div id="pie-chart-container">
-    <!-- svg will be appended here -->
-</div>
