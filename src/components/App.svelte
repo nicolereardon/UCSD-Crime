@@ -10,7 +10,7 @@
   import { fade } from 'svelte/transition';
 
   let data = [];
-  let map_data = [];
+  // let map_data = [];
   let counter = 0;
   let isOverButton = false;
   let showIntro = true;
