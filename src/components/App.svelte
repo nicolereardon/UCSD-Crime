@@ -56,6 +56,18 @@
   });
 
 
+  function prev(){
+    if (counter > 1) {
+      counter -= 1;
+    }
+  }
+  function next(){
+    if (counter < 6) {
+      counter += 1;
+    }
+  }
+
+
   function page1(){
     counter = 1;
   }
@@ -98,10 +110,7 @@
     </div>
   {:else}
   <div in:fade={{ duration: 250, delay: 1000 }} class = "mainpages">
-    <h1>DSC106 Final Project Prototype</h1>
-
-    <a href="Writeup.html" target="_blank"> Click here for Writeup!</a>
-
+    <h1>UCSD's Timely Warnings</h1>
 
     {#if counter < 1}
       <h1>We might not need this page but just in case</h1>
@@ -128,12 +137,16 @@
         {/if}
       </div>
 
-    <button type="button" on:click={page1} on:mouseenter={() => isOverButton = true} on:mouseleave={() => isOverButton = false}> Page 1</button>
-    <button type="button" on:click={page2} on:mouseenter={() => isOverButton = true} on:mouseleave={() => isOverButton = false}> Page 2</button>
-    <button type="button" on:click={page3} on:mouseenter={() => isOverButton = true} on:mouseleave={() => isOverButton = false}> Page 3</button>
-    <button type="button" on:click={page4} on:mouseenter={() => isOverButton = true} on:mouseleave={() => isOverButton = false}> Page 4</button>
-    <button type="button" on:click={page5} on:mouseenter={() => isOverButton = true} on:mouseleave={() => isOverButton = false}> Page 5</button>
-    <button type="button" on:click={page6} on:mouseenter={() => isOverButton = true} on:mouseleave={() => isOverButton = false}> Page 6</button>
+    <div class= "button-container">
+      <button type="button" on:click={prev} on:mouseenter={() => isOverButton = true} on:mouseleave={() => isOverButton = false}> Prev </button>
+      <button type="button" on:click={page1} on:mouseenter={() => isOverButton = true} on:mouseleave={() => isOverButton = false}> Page 1 </button>
+      <button type="button" on:click={page2} on:mouseenter={() => isOverButton = true} on:mouseleave={() => isOverButton = false}> Page 2 </button>
+      <button type="button" on:click={page3} on:mouseenter={() => isOverButton = true} on:mouseleave={() => isOverButton = false}> Page 3 </button>
+      <button type="button" on:click={page4} on:mouseenter={() => isOverButton = true} on:mouseleave={() => isOverButton = false}> Page 4 </button>
+      <button type="button" on:click={page5} on:mouseenter={() => isOverButton = true} on:mouseleave={() => isOverButton = false}> Page 5 </button>
+      <button type="button" on:click={page6} on:mouseenter={() => isOverButton = true} on:mouseleave={() => isOverButton = false}> Page 6 </button>
+      <button type="button" on:click={next} on:mouseenter={() => isOverButton = true} on:mouseleave={() => isOverButton = false}> Next </button>
+    </div>
     {/if}
 
   </div>
@@ -162,6 +175,16 @@
     font-size: 2em; /* Adjust the font size as needed */
     text-align: center;
     margin-bottom: 20px; /* Add space between h1 and button */
+  }
+
+  .button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; /* Adjust as needed */
+  }
+
+  .button-container button {
+  margin-right: 5px; /* Adjust as needed */
   }
 
   .learn_more_button {
