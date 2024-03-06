@@ -6,6 +6,8 @@
   import Crime_bd from '../components/crime_bd.svelte';
   import P3 from '../components/p3.svelte';
   import P4 from '../components/p4.svelte';
+  import P5 from '../components/p5.svelte';
+  import P6 from '../components/p6.svelte';
   import Map from "./Map.svelte";
   import Map_bg from "./Map_bg.svelte";
   import { fade } from 'svelte/transition';
@@ -66,10 +68,16 @@
   function page4(){
     counter = 4;
   }
+  function page5(){
+    counter = 5;
+  }
+  function page6(){
+    counter = 6;
+  }
 
   function incrementpage(){
     if (!isOverButton) {
-      if (counter !== 4) {
+      if (counter !== 7) {
         counter += 1
       }
       return;
@@ -110,7 +118,12 @@
             <Map {data} />
         {:else if counter===4}
           <P4/>
-        {:else if counter===4}
+        {:else if counter===5}
+          <P5/>
+        {:else if counter===6}
+          <P6/>
+        {:else if counter===7}
+        
            
         {/if}
       </div>
@@ -119,6 +132,8 @@
     <button type="button" on:click={page2} on:mouseenter={() => isOverButton = true} on:mouseleave={() => isOverButton = false}> Page 2</button>
     <button type="button" on:click={page3} on:mouseenter={() => isOverButton = true} on:mouseleave={() => isOverButton = false}> Page 3</button>
     <button type="button" on:click={page4} on:mouseenter={() => isOverButton = true} on:mouseleave={() => isOverButton = false}> Page 4</button>
+    <button type="button" on:click={page5} on:mouseenter={() => isOverButton = true} on:mouseleave={() => isOverButton = false}> Page 5</button>
+    <button type="button" on:click={page6} on:mouseenter={() => isOverButton = true} on:mouseleave={() => isOverButton = false}> Page 6</button>
     {/if}
 
   </div>
