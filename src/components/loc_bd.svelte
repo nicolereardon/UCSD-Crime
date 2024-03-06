@@ -1,4 +1,5 @@
 <script>
+    // currently not being used at all, prob safe to delete shortly?
     import * as d3 from 'd3';
     import { onMount } from 'svelte';
 

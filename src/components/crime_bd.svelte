@@ -2,8 +2,6 @@
     import * as d3 from 'd3';
     import { onMount } from 'svelte';
 
-    console.log('hi')
-
     export let data;
 
     let crimeData = [];
