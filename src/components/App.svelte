@@ -107,7 +107,7 @@
     <div in:fade={{ duration: 500, delay: 0 }} out:fade={{ duration: 250, delay: 0 }} class = "intro_page">
       <h1 class="intro_text">Want to stay safe at UCSD?</h1>
       <button class="learn_more_button" on:click={() => (showIntro = false)}>Learn more</button>
-      <Map_bg {data} {input_center} />
+      <Map_bg {data} {input_center}/>
     </div>
   {:else}
   <div in:fade={{ duration: 250, delay: 1000 }} class = "mainpages">
