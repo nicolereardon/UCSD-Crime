@@ -73,7 +73,7 @@
     counter = 1;
   }
   function page2(){
-    console.log(data)
+    counter = 2;
   }
   function page3(){
     counter = 3;

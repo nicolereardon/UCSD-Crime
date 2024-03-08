@@ -1,6 +1,7 @@
 <link href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css" rel="stylesheet" />
 
 <script>
+
     export let data;
     let mostRecentCrimes;
 
