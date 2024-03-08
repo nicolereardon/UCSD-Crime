@@ -8,14 +8,14 @@ Key,Alert Category,Date of Response,Time of Response,Date of Crime,Time of Crime
 7,Timely Warning,8/25/2019,10:03 PM,8/25/2019,10:00 PM,Robbery,robbery that occurred at the 101 bus stop at the corner of North Torrey Pines and La Jolla Shores Drive,Yes,No,N/A,https://adminrecords.ucsd.edu/Notices/2019/2019-8-25-1.html
 8,Community Alert Bulletin,8/31/2019,4:04 PM,8/31/2019,3:54 PM,Indecent Exposure,"3857 Miramar Street, between Arena and Cresta buildings",Yes,No,N/A,https://adminrecords.ucsd.edu/Notices/2019/2019-8-31-1.html
 9,Community Alert Bulletin,9/24/2019,,,,Theft By False Pretenses (Phone Scams),"online, phone calls",No,No,N/A,https://adminrecords.ucsd.edu/Notices/2019/2019-9-24-2.html
-10,Annual Campus Lighting Review Walks,10/25/2019,,,,,,,,N/A,https://adminrecords.ucsd.edu/Notices/2019/2019-10-25-3.html
+10,Annual Campus Lighting Review Walks,10/25/2019,,,,Lighting Report,,,,N/A,https://adminrecords.ucsd.edu/Notices/2019/2019-10-25-3.html
 11,Community Alert Bulletin,11/6/2019,,11/4/2019,8:00 PM,Sexual Battery,while walking on 8600 La Jolla Scenic Drive North.,Yes,No,N/A,https://adminrecords.ucsd.edu/Notices/2019/2019-11-6-2.html
 12,Timely Warning,11/24/2019,3:00 PM,11/24/2019,7:00 AM,Burglary,Thurgood Marshall College Residence Halls,No,No,N/A,https://adminrecords.ucsd.edu/Notices/2019/2019-11-24-1.html
 13,Timely Warning,1/28/2020,12:00 PM,1/20/2020,2:50 AM,Burglary,Applied Mathematics and Physics (AP&M) office,Yes,No,N/A,https://adminrecords.ucsd.edu/Notices/2020/2020-1-30-4.html
 14,Timely Warning,2/17/2020,9:32 PM,,,Brandishing of a Firearm,near 9266 Regents Road (Mesa Apartments),Yes,No,N/A,https://adminrecords.ucsd.edu/Notices/2020/2020-2-17-1.html
-15,Confirmed Cases of COVID-19 at UC San Diego,3/16/2020,,,,,,,,,https://adminrecords.ucsd.edu/Notices/2020/2020-3-16-1.html
-16,Confirmed Cases of COVID-19 at UC San Diego,3/23/2020,,,,,,,,,https://adminrecords.ucsd.edu/Notices/2020/2020-3-23-2.html
-17,COVID-19 at UC San Diego,3/28/2020,,,,,,,,16,https://adminrecords.ucsd.edu/Notices/2020/2020-3-28-1.html
+15,Confirmed Cases of COVID-19 at UC San Diego,3/16/2020,,,,Covid,,,,,https://adminrecords.ucsd.edu/Notices/2020/2020-3-16-1.html
+16,Confirmed Cases of COVID-19 at UC San Diego,3/23/2020,,,,Covid,,,,,https://adminrecords.ucsd.edu/Notices/2020/2020-3-23-2.html
+17,COVID-19 at UC San Diego,3/28/2020,,,,Covid,,,,16,https://adminrecords.ucsd.edu/Notices/2020/2020-3-28-1.html
 18,Timely Warning,07/05/2020,1:56 AM,,,Arson,"Scripps Institution of Oceanography Old Director's House at 8670 Discovery Way, flames and smoke coming from the southeast corner of the building.",No,No,N/A,https://adminrecords.ucsd.edu/Notices/2020/2020-7-5-1.html
 19,Timely Warning,9/6/2020,,,,Motor Vehicle Theft,area of parking lot #352,No,No,N/A,https://adminrecords.ucsd.edu/Notices/2020/2020-9-6-1.html
 20,Community Alert Bulletin,9/21/2020,,,,Theft by False Pretenses (Phone Scams),"online, phone calls",No,No,N/A,https://adminrecords.ucsd.edu/Notices/2020/2020-9-21-1.html
@@ -33,7 +33,7 @@ Key,Alert Category,Date of Response,Time of Response,Date of Crime,Time of Crime
 32,Timely Warning,11/11/2021,5:30 PM,,,Attempted Motor Vehicle Theft,Campus Point Parking Structure,Yes,No,N/A,https://adminrecords.ucsd.edu/Notices/2021/2021-11-11-2.html
 33,Timely Warning,11/23/2021,4:53 PM,11/23/2021,3:00 PM,Stalking,Sixth College,Yes,No,N/A,https://adminrecords.ucsd.edu/Notices/2021/2021-11-24-5.html
 34,Timely Warning,11/30/2021,3:43 PM,11/30/2021,11:15 AM,Burglary,,No,No,N/A,https://adminrecords.ucsd.edu/Notices/2021/2021-11-30-5.html
-35,Timely Warning,,,,,,,,,34,https://adminrecords.ucsd.edu/Notices/2021/2021-12-1-5.html
+35,Timely Warning,,,,,Burglary,,,,34,https://adminrecords.ucsd.edu/Notices/2021/2021-12-1-5.html
 36,Timely Warning,1/19/2022,10:00 AM,1/19/2022,6:10 AM,Burglary,Latin America Hall,No,No,N/A,https://adminrecords.ucsd.edu/Notices/2022/2022-1-19-2.html
 37,Timely Warning,1/21/2022,12:10 PM,1/20/2022,12:00 PM,Burglary,Tioga Hall,No,No,N/A,https://adminrecords.ucsd.edu/Notices/2022/2022-1-21-7.html
 38,Timely Warning,1/27/2022,8:51 PM,1/27/2022,8:15 PM,Burglary,Marshall Lower Apartments,No,No,N/A,https://adminrecords.ucsd.edu/Notices/2022/2022-1-28-2.html
@@ -51,7 +51,7 @@ Key,Alert Category,Date of Response,Time of Response,Date of Crime,Time of Crime
 50,Timely Warning,6/3/2022,5:12 PM,6/3/2022,5:53 AM,Aggrevated Assault,La Jolla Shores Hotel,Yes,No,N/A,https://adminrecords.ucsd.edu/Notices/2022/2022-6-3-2.html
 51,Community Alert Bulletin,6/3/2022,5:12 PM,6/3/2022,5:53 AM,Aggrevated Assault,La Jolla Shores Hotel,Yes,No,50,https://adminrecords.ucsd.edu/Notices/2022/2022-6-5-1.html
 52,Timely Warning,6/12/2022,9:28 AM,6/12/2022,,Arson,Leichtag Biomedical Research Building,No,No,N/A,https://adminrecords.ucsd.edu/Notices/2022/2022-6-12-1.html
-53,Community Alert Bulletin,6/13/2022,5:00 PM,6/13/2022,4:30 PM,,Biological Grade Parking Lot #011,Yes,No,N/A,https://adminrecords.ucsd.edu/Notices/2022/2022-6-13-4.html
+53,Community Alert Bulletin,6/13/2022,5:00 PM,6/13/2022,4:30 PM,Stalking,Biological Grade Parking Lot #011,Yes,No,N/A,https://adminrecords.ucsd.edu/Notices/2022/2022-6-13-4.html
 54,Timely Warning,6/16/2022,11:28 PM,6/13/2022,3:10 PM,Intimidation - Sexual Orientation Bias,UCSD Hillcrest Hospital,No,No,N/A,https://adminrecords.ucsd.edu/Notices/2022/2022-6-17-2.html
 55,Timely Warning,6/22/2022,2:29 AM,6/22/2022,1:45 AM,Robbery,UCSD Medical Center Hillcrest Parking Lot,Yes,No,N/A,https://adminrecords.ucsd.edu/Notices/2022/2022-6-22-2.html
 56,Timely Warning,8/8/2022,5:01 AM,8/8/2022,3:30 AM,Burglary,1000 York Lane,No,No,N/A,https://adminrecords.ucsd.edu/Notices/2022/2022-8-8-3.html
@@ -63,7 +63,7 @@ Key,Alert Category,Date of Response,Time of Response,Date of Crime,Time of Crime
 62,Timely Warning,10/11/2022,9:10 PM,10/11/2022,8:50 PM,Attempted Strong-Arm Robbery,UC Health Trolley Stop,Yes,No,N/A,https://adminrecords.ucsd.edu/Notices/2022/2022-10-12-2.html
 63,Community Alert Bulletin,11/15/2022,,,,Avoid Area,Voigt Drive & Matthews Lane,,,N/A,https://adminrecords.ucsd.edu/Notices/2022/2022-11-15-2.html
 64,Community Alert Bulletin,11/16/2022,,,,Avoid Area,Voigt Drive & Matthews Lane,,,N/A,https://adminrecords.ucsd.edu/Notices/2022/2022-11-16-4.html
-65,Community Alert Bulletin,11/16/2022,2:20 PM,,,,Voigt Drive,,,N/A,https://adminrecords.ucsd.edu/Notices/2022/2022-11-16-5.html
+65,Community Alert Bulletin,11/16/2022,2:20 PM,,,Avoid Area,Voigt Drive,,,N/A,https://adminrecords.ucsd.edu/Notices/2022/2022-11-16-5.html
 66,Community Alert Bulletin,11/17/2022,,,,Avoid Area,Voigt Drive & Matthews Lane,,,N/A,https://adminrecords.ucsd.edu/Notices/2022/2022-11-17-3.html
 67,Timely Warning,11/27/2022,3:10 PM,,,Sexual Assault Unknown Perpetrator,Nueva West Housing Street Corner Community Store,Yes,No,N/A,https://adminrecords.ucsd.edu/Notices/2022/2022-11-27-1.html
 68,Information on Jacobs Medical Center Incident,12/15/2022,5:50 AM,,,Information on Jacobs Medical Center Incident,Jacobs Medical Center,No,No,N/A,https://adminrecords.ucsd.edu/Notices/2022/2022-12-15-3.html
@@ -73,7 +73,7 @@ Key,Alert Category,Date of Response,Time of Response,Date of Crime,Time of Crime
 72,Timely Warning,2/25/2023,9:17 AM,2/25/2023,6:45 AM,Sexual Battery,Sulpizio Cardiovascular Center at UC San Diego Health,Yes,No,N/A,https://adminrecords.ucsd.edu/Notices/2023/2023-2-25-1.html
 73,Timely Warning,2/28/2023,,2/21/2023,7:00 PM,Robbery,Library Walk near The Trove,Yes,Yes,71,https://adminrecords.ucsd.edu/Notices/2023/2023-2-28-4.html
 74,Timely Warning,3/16/2023,9:54 AM,3/16/2023,9:00 AM,Attempted Robbery,UC San Diego Health Medical Offices South (4168 Front St.),Yes,No,N/A,https://adminrecords.ucsd.edu/Notices/2023/2023-3-16-5.html
-75,Community Alert Bulletin,3/19/2023,,6/13/2022,4:30 PM,,Biological Grade Parking Lot #011,Yes,Yes,52,https://adminrecords.ucsd.edu/Notices/2023/2023-3-19-1.html
+75,Community Alert Bulletin,3/19/2023,,6/13/2022,4:30 PM,Indecent Exposure,Biological Grade Parking Lot #011,Yes,Yes,53,https://adminrecords.ucsd.edu/Notices/2023/2023-3-19-1.html
 76,Timely Warning,4/15/2023,3:20 PM,4/15/2023,8:00 AM,Burglary,Marshall Lower – Freedom building,No,No,N/A,https://adminrecords.ucsd.edu/Notices/2023/2023-4-16-1.html
 77,Timely Warning,4/22/2023,11:04 PM,,,Attempted Burglary,"Marshall Lower Apartments, ""Empower"" Building",No,No,N/A,https://adminrecords.ucsd.edu/Notices/2023/2023-4-23-1.html
 78,Timely Warning,5/2/2023,,5/2/2023,11:00 a.m.,Robbery,Central Campus Trolley platform,Yes,No,N/A,https://adminrecords.ucsd.edu/Notices/2023/2023-5-2-2.html
@@ -111,4 +111,11 @@ Key,Alert Category,Date of Response,Time of Response,Date of Crime,Time of Crime
 110,Timely Warning,11/21/2023,6:39 AM,,,Attempted Burglary,Keeling Apartments,Yes,No,N/A,https://adminrecords.ucsd.edu/Notices/2023/2023-11-21-3.html
 111,Timely Warning,11/22/2023,,11/17/2023,3:50 PM,Stalking and Sexual Assault,various locations on the UC San Diego campus,Yes,Yes,109,https://adminrecords.ucsd.edu/Notices/2023/2023-11-22-2.html
 112,Timely Warning,12/20/2023,4:43 AM,12/19/2023,7:40 A.M,Attempted Burglary,Mesa Verde Hall,Yes,No,N/A,https://adminrecords.ucsd.edu/Notices/2023/2023-12-20-1.html
-113,Timely Warning,1/11/2024,8:34 AM,1/10/2004,11:30 PM,Burglary,Warren Mall,No,No,N/A,https://adminrecords.ucsd.edu/Notices/2024/2024-1-11-2.html
+113,Timely Warning,1/11/2024,8:34 AM,1/10/2024,11:30 PM,Burglary,Warren Mall,No,No,N/A,https://adminrecords.ucsd.edu/Notices/2024/2024-1-11-2.html
+114,Timely Warning,2/24/2024,4:01 AM,,,Weapons Law Violation,Scripps,No,No,N/A,
+115,Timely Warning,2/28/2024,10:00 AM,,,Burglary,School of Medicine - Holly Building,No,No,N/A,
+116,Timely Warning,2/28/2024,2:41 AM,,,Arson,Mesa Apartments,No,No,N/A,
+117,Timely Warning,3/1/2024,10:10 AM,,,Burglary,School of Medicine - Holly Building,No,No,N/A,
+118,Community Alert Bulletin,3/3/2024,2:22 PM,3/6/2024,,Demonstration,Sun God Lawn,No,No,120,
+119,Timely Warning,3/4/2024,8:15 AM,,,Burglary,La Jolla Playhouse,No,No,N/A,
+120,Community Alert Bulletin,3/5/2024,3:05 PM,3/6/2024,,Demonstration,Matthews Quad,No,No,N/A,

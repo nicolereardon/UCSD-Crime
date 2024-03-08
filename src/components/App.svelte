@@ -130,7 +130,7 @@
         {:else if counter===5}
           <P5/>
         {:else if counter===6}
-          <P6/>
+          <P6 {data} />
         {:else if counter===7}
         
            

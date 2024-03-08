@@ -1,7 +1,11 @@
 <script>
     console.log("hi - hehe")
-    console.log("With the change in order is it okay, if I take this and Nicole moves to 4?")
-    console.log("yes")
+    import * as d3 from 'd3';
+    import { onMount } from 'svelte';
+
+    export let data;
+
+    let crimeData = [];
 
 </script>
 
