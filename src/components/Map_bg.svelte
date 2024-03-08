@@ -5,6 +5,7 @@
 
   let map;
   export let data;
+  export let input_center;
 
   let svg;
   let categoryData = [];
@@ -15,7 +16,7 @@
     map = new mapboxgl.Map({
       container: "map",
       style: "mapbox://styles/mapbox/light-v11",
-      center: [-117.23685272044901, 32.87930699468673],
+      center: input_center,
       zoom: 13.5,
       minZoom: 12,
       maxZoom: 25,

@@ -17,6 +17,7 @@
   let counter = 0;
   let isOverButton = false;
   let showIntro = true;
+  let input_center = [-117.23685272044901, 32.87930699468673];
 
   onMount(async () => {
     try {
@@ -72,7 +73,7 @@
     counter = 1;
   }
   function page2(){
-    counter = 2;
+    console.log(data)
   }
   function page3(){
     counter = 3;
@@ -106,7 +107,7 @@
     <div in:fade={{ duration: 500, delay: 0 }} out:fade={{ duration: 250, delay: 0 }} class = "intro_page">
       <h1 class="intro_text">Want to stay safe at UCSD?</h1>
       <button class="learn_more_button" on:click={() => (showIntro = false)}>Learn more</button>
-      <Map_bg {data} />
+      <Map_bg {data} {input_center} />
     </div>
   {:else}
   <div in:fade={{ duration: 250, delay: 1000 }} class = "mainpages">
@@ -128,9 +129,9 @@
         {:else if counter===4}
           <P4/>
         {:else if counter===5}
-          <P5/>
+          <P5 {data} />
         {:else if counter===6}
-          <P6 {data} />
+          <P6/>
         {:else if counter===7}
         
            
