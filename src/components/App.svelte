@@ -40,10 +40,11 @@
           MapGroup: d.MapGroup,
           coords: d.coords,
           latitude: +d.latitude,
-          longitude: +d.longitude
+          longitude: +d.longitude,
+          quarter: d.quarter
         };
       });
-
+      console.log(data)
       // Hide the intro screen after a delay (e.g., 5 seconds)
       setTimeout(() => {
         showIntro = false;
@@ -127,7 +128,7 @@
         {:else if counter===3}
             <Map {data} />
         {:else if counter===4}
-          <P4/>
+          <P4 {data}/>
         {:else if counter===5}
           <P5 {data} />
         {:else if counter===6}
