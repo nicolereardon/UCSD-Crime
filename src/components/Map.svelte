@@ -233,24 +233,48 @@ function updatePieChart(newPieData) {
 </script>
 
 <div id='container'>
-  <div id="map" class="map"></div>
-  <div id="pie-chart-container"></div>
+  <div id="map-container">
+    <div id="map" class="map"></div>
+  </div>
+  <div id="info-text-container">
+    <div id="info-text">Text for page 3</div>
+    <div id="pie-chart-container"></div>
+  </div>
 </div>
 
 <style>
   .map {
-    position: relative;
-    width: 800px;
+    width: 700px;
     height: 500px;
+  }
+
+  #info-text-container {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+  }
+
+  #info-text {
+    position: relative;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: white;
+    margin-top: 20px;
+    margin-left: 20px;
   }
 
   #pie-chart-container {
-    width: 400px; /* Adjust the width as needed */
-    height: 500px;
-    float: right; /* or display: inline-block; */
+    width: 200px;
+    height: 100px;
+    margin-top: -60px;
+    margin-left: 20px;
   }
 
   #container {
-    display: flex; /* Use flexbox for layout */
+    display: flex;
+    width: 100%;
+    height: 500px;
   }
+
+  
 </style>

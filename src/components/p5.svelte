@@ -26,6 +26,11 @@
         <img src={`https://api.mapbox.com/styles/v1/mapbox/dark-v11/static/${center2[0]},${center2[1]},16,0,0/400x400?access_token=pk.eyJ1Ijoia3NrYW5la28iLCJhIjoiY2xzZm4ycm01MGtjYTJqcHFsMXl1enNjcCJ9.20jJnxwrWnDVKl-EZOGVew`} alt="Map 2" />
     </div>
 
+    <div id="top-right-text" style="position: absolute; top: 120px; 
+        right: 60px; font-size: 14px; border: 1px solid #ccc; 
+        padding: 10px;">
+            Top Right Text</div>
+
     <style>
         .container {
             display: flex;

@@ -171,4 +171,9 @@
 <div id="bar-chart-container">
     <!-- svg will be appended here -->
     <div id="tooltip" class="tooltip" style="opacity: 0;"></div>
+    <div id="top-right-text" style="position: absolute; top: 120px; 
+        right: 60px; font-size: 14px; border: 1px solid #ccc; 
+        padding: 10px;">
+            Top Right Text</div>
+
 </div>

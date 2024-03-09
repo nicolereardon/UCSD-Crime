@@ -4,7 +4,7 @@
   import * as d3 from 'd3';
   //import Loc_bd from '../components/loc_bd.svelte';
   import Crime_bd from '../components/crime_bd.svelte';
-  import P3 from '../components/p3.svelte';
+  import P1 from '../components/p1.svelte';
   import P4 from '../components/p4.svelte';
   import P5 from '../components/p5.svelte';
   import P6 from '../components/p6.svelte';
@@ -90,7 +90,7 @@
 
   function incrementpage(){
     if (!isOverButton) {
-      if (counter !== 7) {
+      if (counter < 6) {
         counter += 1
       }
       return;
@@ -121,7 +121,7 @@
     {#if counter >= 1}
       <div class="info-box">
         {#if counter===1}
-          <P3/>
+          <P1/>
         {:else if counter ===2}
             <Crime_bd {data} />
         {:else if counter===3}
@@ -192,13 +192,13 @@
     background-color: black;
     color: white;
     border: none;
-    border-radius: 25px; /* Adjust the border-radius to make it oval */
-    padding: 10px 20px; /* Adjust padding as needed */
-    font-size: 1.2em; /* Adjust the font size as needed */
+    border-radius: 25px; 
+    padding: 10px 20px; 
+    font-size: 1.2em; 
     cursor: pointer;
   }
 
   .learn_more_button:hover {
-    background-color: #333; /* Darken the background on hover if desired */
+    background-color: #333;
   }
 </style>
