@@ -118,4 +118,4 @@ Key,AlertCategory,DateOfResponse,TimeOfResponse,DateOfCrime,TimeOfCrime,CrimeCat
 117,Timely Warning,2024-03-01,10:10 AM,,,Burglary,School of Medicine - Holly Building,No,No,,,UCSD School of Medicine,"(32.874277832276334, -117.2354855752366)",32.874277832276334,-117.2354855752366,WI2024
 118,Community Alert Bulletin,2024-03-03,2:22 PM,3/6/2024,,Demonstration,Sun God Lawn and Library Walk,No,No,120.0,,Sun God Lawn and Library Walk,,,,WI2024
 119,Timely Warning,2024-03-04,8:15 AM,,,Burglary,La Jolla Playhouse,No,No,,,Eighth,"(32.87208499560444, -117.24193833723639)",32.87208499560444,-117.24193833723639,WI2024
-120,Community Alert Bulletin,2024-03-05,3:05 PM,3/6/2024,,Demonstration,Matthews Quad,No,No,,,Matthews Quad,,,,WI2024
+120,Community Alert Bulletin,2024-03-05,3:05 PM,3/6/2024,,Demonstration,Matthews Quad,No,No,,,Library Walk,"(32.879165420702776, -117.23757909557858)",32.879165420702776,-117.23757909557858,WI2024

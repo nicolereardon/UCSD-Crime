@@ -38,50 +38,53 @@
     });
     function addCircleLayer() {
         const filteredData = data.filter(d => (d.coords !== "") && (d.Update === ""));
-        console.log(filteredData)
+        
         const locationData = d3.rollup(filteredData, v => v.length, d => d['MapGroup'], d => d['quarter']);
         const map_data = Array.from(locationData, ([map_group, quartersMap]) => {
             const groupData = filteredData.find(d => d['MapGroup'] === map_group);
 
             if (groupData) {
+                const quarterData = Array.from(quartersMap).find(([quarter, count]) => quarter === 'WI2024');
                 return {
                     map_group,
-                    quarters: Array.from(quartersMap, ([quarter, count]) => ({ quarter, count })),
+                    quarters: quarterData ? [{ quarter: 'WI2024', count: quarterData[1] }] : [], // Adjust the structure as needed
                     latitude: +groupData.latitude,
                     longitude: +groupData.longitude,
-                    AlertCategory: groupData.AlertCategory
+                    AlertCategory: groupData.AlertCategory,
+                    count: quarterData ? quarterData[1] : 0 // Get count for 'WI2024'
                 };
             } else {
                 // console.error(`No data found for map_group ${map_group}`);
                 return null;
             }
         }).filter(entry => entry !== null);
-        console.log(map_data)
+        console.log(map_data);
+
         const features = map_data.map(d => {
-            if (!isNaN(d.latitude) && !isNaN(d.longitude) && d.quarter === 'WI2024') {
-            return {
-                type: "Feature",
-                properties: {
-                map_group: d.map_group,
-                count: d.count,
-                AlertCategory: d.AlertCategory
-                },
-                geometry: {
-                type: "Point",
-                coordinates: [d.longitude, d.latitude]
-                }
-            };
+            if (!isNaN(d.latitude) && !isNaN(d.longitude)) {
+                return {
+                    type: "Feature",
+                    properties: {
+                        map_group: d.map_group,
+                        count: d.count,
+                        AlertCategory: d.AlertCategory
+                    },
+                    geometry: {
+                        type: "Point",
+                        coordinates: [d.longitude, d.latitude]
+                    }
+                };
             } else {
-            // console.error(`Invalid coordinates or map_group for ${d.map_group}`);
-            return null;
+                // console.error(`Invalid coordinates for map_group ${d.map_group}`);
+                return null;
             }
         }).filter(feature => feature !== null);
 
         map.addSource("mapGroups", {
             type: "geojson",
             data: {
-            type: "FeatureCollection",
-            features: features
+                type: "FeatureCollection",
+                features: features
             }
         });
 
@@ -90,19 +93,18 @@
             source: "mapGroups",
             type: "circle",
             paint: {
-            "circle-radius": [
-                "interpolate",
-                ["linear"],
-                ["get", "quarter"],
-                0, 5,
-                d3.max(map_data, d => d.count), 20
-            ],
-            "circle-color": "steelblue",
-            "circle-opacity": 0.7
+                "circle-radius": [
+                    "interpolate",
+                    ["linear"],
+                    ["get", "count"],
+                    0, 5,
+                    d3.max(map_data, d => d.count), 20
+                ],
+                "circle-color": "steelblue",
+                "circle-opacity": 0.7
             }
         });
     }
-    
 
     function update_station_markers() {
 		station_markers
