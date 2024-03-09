@@ -14,7 +14,7 @@
 </div>
 
 <div id="email">
-        <img src='page6_email1.png' alt="Suggestion Email" style="width: 100%; height: auto;"/>
+        <img src='page6_email.png' alt="Suggestion Email" style="width: 100%; height: auto;"/>
 </div>
 
 
