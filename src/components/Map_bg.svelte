@@ -17,7 +17,7 @@
       container: "map",
       style: "mapbox://styles/mapbox/light-v11",
       center: input_center,
-      zoom: 13.5,
+      zoom: 15,
       minZoom: 12,
       maxZoom: 25,
     });

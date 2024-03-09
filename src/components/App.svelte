@@ -17,7 +17,7 @@
   let counter = 0;
   let isOverButton = false;
   let showIntro = true;
-  let input_center = [-117.23685272044901, 32.87930699468673];
+  let input_center = [-117.23685272044901, 32.87940699468673];
 
   onMount(async () => {
     try {
