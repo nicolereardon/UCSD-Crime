@@ -237,7 +237,12 @@ function updatePieChart(newPieData) {
     <div id="map" class="map"></div>
   </div>
   <div id="info-text-container">
-    <div id="info-text">Text for page 3</div>
+    <div id="top-right-text" 
+        style="position: absolute; top: 120px; left: 770px; right: 60px; font-size: 14px; border: 1px solid #ccc; padding: 10px;">
+            <strong>Step 2:</strong> Empower Through Insight - Can we absorb all of this from current warnings alone? Not entirely!
+            Hence, we offer these suggestions to empower UCSD students, fostering
+            awareness and self-protection
+    </div>
     <div id="pie-chart-container"></div>
   </div>
 </div>
@@ -254,20 +259,9 @@ function updatePieChart(newPieData) {
     margin-right: 20px;
   }
 
-  #info-text {
-    position: relative;
-    padding: 10px;
-    border: 1px solid #ccc;
-    background-color: white;
-    margin-top: 20px;
-    margin-left: 20px;
-  }
-
   #pie-chart-container {
     width: 200px;
     height: 100px;
-    margin-top: -60px;
-    margin-left: 20px;
   }
 
   #container {
