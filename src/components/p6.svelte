@@ -8,9 +8,7 @@
 
 <div id="top-right-text" 
         style="position: absolute; top: 120px; left: 800px; right: 60px; font-size: 14px; border: 1px solid #ccc; padding: 10px;">
-            <strong>Step 5:</strong> Empower Through Insight - Can we absorb all of this from current warnings alone? Not entirely!
-            Hence, we offer these suggestions to empower UCSD students, fostering
-            awareness and self-protection
+            This is what we think UCPD could do to enhance Triton Alerts. 
 </div>
 
 <div id="email">
