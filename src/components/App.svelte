@@ -98,6 +98,29 @@
     }
   }
 
+  function lessenpage(){
+    if (!isOverButton) {
+      if (counter > 1) {
+        counter -= 1
+      }
+      return;
+    }
+  }
+
+  if (typeof window !== 'undefined') {
+    window.addEventListener('keydown', (event) => {
+      // Check if the right arrow key is pressed (key code 39)
+      if (event.keyCode === 39) {
+        incrementpage();
+      }
+      // Check if the left arrow key is pressed (key code 37)
+      else if (event.keyCode === 37) {
+        lessenpage();
+      }
+    });
+  }
+
+
   $: {
     console.log(counter);
   }
