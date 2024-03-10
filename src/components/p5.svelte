@@ -135,8 +135,12 @@
     </div>
 
     <div id="top-right-text" 
-        style="position: absolute; top: 120px; left: 900px; right: 60px; font-size: 14px; border: 1px solid #ccc; padding: 10px;">
-            <strong>Step 4:</strong> Identify Shadows - stay vigilant for recent suspects. Some still might not be in custody.
+        style="position: absolute; top: 120px; left: 900px; right: 60px; font-size: 16px; border: 1px solid #ccc; padding: 10px;">
+            Let's quickly take a look at 2 recent examples of Timely Warnings or Community Allert Bulletins that have come out.
+            We've provided the date and time of the alert, a description of what the alert means, the name of the location,
+            showing the location, and whether there was information regarding a potential suspect. Using previous alerts, we compiled
+            a list of crimes that have previously occured in the area. All of this information could be useful in helping students
+            make informed decisions and protect their safety.
     </div>
 
     <style>

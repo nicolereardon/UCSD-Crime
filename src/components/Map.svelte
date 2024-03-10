@@ -238,10 +238,13 @@ function updatePieChart(newPieData) {
   </div>
   <div id="info-text-container">
     <div id="top-right-text" 
-        style="position: absolute; top: 120px; left: 770px; right: 60px; font-size: 14px; border: 1px solid #ccc; padding: 10px;">
-            <strong>Step 2:</strong> Empower Through Insight - Can we absorb all of this from current warnings alone? Not entirely!
-            Hence, we offer these suggestions to empower UCSD students, fostering
-            awareness and self-protection
+        style="position: absolute; top: 120px; left: 770px; right: 60px; font-size: 16px; border: 1px solid #ccc; padding: 10px;">
+            Now we would like to know where these crimes and disruptions occur, so we have a better idea of what areas
+            might be more or less dangerous than others. To the left we have an interactive map that can be dragged around to look at
+            different areas. The circles show areas where crimes occur, with the size corresponding to how many incidents have occurred.
+            To the right of the map we have a pie chart that breaks down the types of crimes that have occured. When no dot is
+            being hovered this shows a breakdown of all the crimes, and while a dot is hovered it shows a breakdown of just the crimes
+            for that area.
     </div>
     <div id="pie-chart-container"></div>
   </div>
