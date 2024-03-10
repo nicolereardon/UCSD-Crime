@@ -31,7 +31,7 @@
     'Trespassing in an Occupied Residence': 'Trespassing in an Occupied Residence is the unauthorized entry into an occupied residence.',
     'Office Building Burglaries': 'Office Building Burglaries involve unauthorized entry into office buildings with the intent to commit a crime.',
     'Missing Juvenile At Risk': 'Missing Juvenile At Risk indicates the disappearance of a juvenile who may be in danger.',
-    'Demonstration': 'A group of protestors will be congregating.'
+    'Demonstration': 'A group of people congregating to express opposition to a practice or issue.'
 };
 
     mostRecentCrimes = data.slice(-2);

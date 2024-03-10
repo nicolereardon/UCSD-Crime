@@ -37,6 +37,7 @@
     'Trespassing in an Occupied Residence': 'Trespassing in an Occupied Residence is the unauthorized entry into an occupied residence.',
     'Office Building Burglaries': 'Office Building Burglaries involve unauthorized entry into office buildings with the intent to commit a crime.',
     'Missing Juvenile At Risk': 'Missing Juvenile At Risk indicates the disappearance of a juvenile who may be in danger.',
+    'Demonstration': 'A group of people congregating to express opposition to a practice or issue.'
 };
 
     let svg;
@@ -172,9 +173,12 @@
     <!-- svg will be appended here -->
     <div id="tooltip" class="tooltip" style="opacity: 0;"></div>
     <div id="top-right-text" 
-        style="position: absolute; top: 120px; left: 900px; right: 60px; font-size: 14px; border: 1px solid #ccc; padding: 10px;">
-            <strong>Step 1:</strong> Illuminate the Path - Begin your journey to safety with awareness. 
-            Understand the spectrum of crimes that trigger Timely Warnings.
+        style="position: absolute; top: 120px; left: 900px; right: 60px; font-size: 16px; border: 1px solid #ccc; padding: 10px;">
+            Let's begin by understanding which crimes or events meet the threshold to warrant a Timely Warning 
+            or Community Alert Bulletin. To the left is a bar chart that shows the frequency of the different 
+            alerts given over the past 5 years. They may vary in terms of specificity, but by hovering over a bar,
+            you have access to a brief description of what that crime or alert means. The most frequent types of 
+            crimes are burglary, arson, and robbery.
     </div>
 
 </div>
