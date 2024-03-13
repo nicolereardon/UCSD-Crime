@@ -163,14 +163,14 @@
       </div>
 
     <div class= "button-container">
-      <button type="button" on:click={prev} on:mouseenter={() => isOverButton = true} on:mouseleave={() => isOverButton = false}> Prev </button>
+      <button type="button" class="arrow-button" on:click={prev} on:mouseenter={() => isOverButton = true} on:mouseleave={() => isOverButton = false}> &#9664; </button>
       <button type="button" on:click={page1} on:mouseenter={() => isOverButton = true} on:mouseleave={() => isOverButton = false}> Page 1 </button>
       <button type="button" on:click={page2} on:mouseenter={() => isOverButton = true} on:mouseleave={() => isOverButton = false}> Page 2 </button>
       <button type="button" on:click={page3} on:mouseenter={() => isOverButton = true} on:mouseleave={() => isOverButton = false}> Page 3 </button>
       <button type="button" on:click={page4} on:mouseenter={() => isOverButton = true} on:mouseleave={() => isOverButton = false}> Page 4 </button>
       <button type="button" on:click={page5} on:mouseenter={() => isOverButton = true} on:mouseleave={() => isOverButton = false}> Page 5 </button>
       <button type="button" on:click={page6} on:mouseenter={() => isOverButton = true} on:mouseleave={() => isOverButton = false}> Page 6 </button>
-      <button type="button" on:click={next} on:mouseenter={() => isOverButton = true} on:mouseleave={() => isOverButton = false}> Next </button>
+      <button type="button" class="arrow-button" on:click={next} on:mouseenter={() => isOverButton = true} on:mouseleave={() => isOverButton = false}> &#9654; </button>
     </div>
     {/if}
 
@@ -232,16 +232,17 @@
   }
 
   .learn_more_button {
-    background-color: black;
-    color: white;
+    background-color: #FDB0C0;
+    color: black;
     border: none;
     border-radius: 25px; 
     padding: 10px 20px; 
     font-size: 1.2em; 
+    font-family: "Whisper", cursive;
     cursor: pointer;
   }
 
   .learn_more_button:hover {
-    background-color: #333;
+    background-color: #ADD8E6;
   }
 </style>
