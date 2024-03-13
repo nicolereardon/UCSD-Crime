@@ -118,14 +118,7 @@
             .style('text-anchor', 'middle')
             .text('Frequency');
 
-        // Add title
-        svg.append('text')
-            .attr('x', width / 2)
-            .attr('y', 0 - margin.top / 2)
-            .attr('text-anchor', 'middle')
-			.attr('font-weight', "bold")
-            .style('font-size', '20px')
-            .text('Taking a look at Crime Categories');
+
     
 
     function handleMouseOver(event, d) {
@@ -158,27 +151,46 @@
 </script>
 
 <style>
+    #subtitle {
+        text-align: center;
+        font-size: 28px;
+        font-family: "Whisper", cursive;
+    }  
+
     .tooltip {
         position: absolute;
         background-color: white;
         border: 1px solid #ccc;
         padding: 10px;
-        pointer-events: none; /* Ensure tooltip doesn't interfere with mouse events on bars */
-        font-size: 14px;
+        pointer-events: none;
+        font-size: 20px;
+        font-family: "EB Garamond", serif;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    #top-right-text {
+        position: absolute;
+        top: 140px; 
+        left: 900px; 
+        right: 60px;
+        border: 3px solid #ADD8E6; 
+        padding: 10px; 
+        background-color: white;
+        font-family: "EB Garamond", serif;
+        font-size: 18px;
     }
 </style>
 
+<h1 id="subtitle">Overall Crime Categories</h1>
 <div id="bar-chart-container">
     <!-- svg will be appended here -->
     <div id="tooltip" class="tooltip" style="opacity: 0;"></div>
-    <div id="top-right-text" 
-        style="position: absolute; top: 120px; left: 900px; right: 60px; font-size: 16px; border: 1px solid #ccc; padding: 10px;">
-            Let's begin by understanding which crimes or events meet the threshold to warrant a Timely Warning 
-            or Community Alert Bulletin. To the left is a bar chart that shows the frequency of the different 
-            alerts given over the past 5 years. They may vary in terms of specificity, but by hovering over a bar,
-            you have access to a brief description of what that crime or alert means. The most frequent types of 
-            crimes are burglary, arson, and robbery.
+    <div id="top-right-text" >
+        Let's begin by understanding which crimes or events meet the threshold to warrant a Timely Warning 
+        or Community Alert Bulletin. To the left is a bar chart that shows the frequency of the different 
+        alerts given over the past 5 years. They may vary in terms of specificity, but by hovering over a bar,
+        you have access to a brief description of what that crime or alert means. The most frequent types of 
+        crimes are burglary, arson, and robbery.
     </div>
 
 </div>

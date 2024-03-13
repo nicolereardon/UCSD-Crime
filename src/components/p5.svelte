@@ -81,8 +81,10 @@
 
 </script>
 
+<h1 id="subtitle">Recent Warnings</h1>
+
 <main class="container">
-    <h1>Recent Warnings</h1>
+
 
     <!-- First Map Container with Title and Description -->
     <div class="map-section">
@@ -92,8 +94,8 @@
                 <image href={`https://api.mapbox.com/styles/v1/mapbox/navigation-day-v1/static/${center1[0]},${center1[1]},16,0,0/500x500?access_token=pk.eyJ1Ijoia3NrYW5la28iLCJhIjoiY2xzZm4ycm01MGtjYTJqcHFsMXl1enNjcCJ9.20jJnxwrWnDVKl-EZOGVew`} width="100%" height="100%" />
             </svg>
             <div class="text-section">
-                <h2>{title1}</h2>
-                <p>
+                <h2 id="crime-title">{title1}</h2>
+                <p id="crime-info">
                     <span>{DescPart1(mostRecentCrimes[1])}</span><br>
                     <span>{DescPart2(mostRecentCrimes[1])}</span><br>
                     <span>{DescPart3(mostRecentCrimes[1])}</span><br>
@@ -117,8 +119,8 @@
                 <image href={`https://api.mapbox.com/styles/v1/mapbox/navigation-day-v1/static/${center2[0]},${center2[1]},16,0,0/500x500?access_token=pk.eyJ1Ijoia3NrYW5la28iLCJhIjoiY2xzZm4ycm01MGtjYTJqcHFsMXl1enNjcCJ9.20jJnxwrWnDVKl-EZOGVew`} width="100%" height="100%" />
             </svg>
             <div class="text-section">
-                <h2>{title2}</h2>
-                <p>
+                <h2 id="crime-title">{title2}</h2>
+                <p id="crime-info">
                     <span>{DescPart1(mostRecentCrimes[0])}</span><br>
                     <span>{DescPart2(mostRecentCrimes[0])}</span><br>
                     <span>{DescPart3(mostRecentCrimes[0])}</span><br>
@@ -134,16 +136,45 @@
         </div>
     </div>
 
-    <div id="top-right-text" 
-        style="position: absolute; top: 120px; left: 900px; right: 60px; font-size: 16px; border: 1px solid #ccc; padding: 10px;">
-            Let's quickly take a look at 2 recent examples of Timely Warnings or Community Allert Bulletins that have come out.
-            We've provided the date and time of the alert, a description of what the alert means, the name of the location,
-            showing the location, and whether there was information regarding a potential suspect. Using previous alerts, we compiled
-            a list of crimes that have previously occured in the area. All of this information could be useful in helping students
-            make informed decisions and protect their safety.
+    <div id="top-right-text" >
+        Let's quickly take a look at 2 recent examples of Timely Warnings or Community Allert Bulletins that have come out.
+        We've provided the date and time of the alert, a description of what the alert means, the name of the location,
+        showing the location, and whether there was information regarding a potential suspect. Using previous alerts, we compiled
+        a list of crimes that have previously occured in the area. All of this information could be useful in helping students
+        make informed decisions and protect their safety.
     </div>
 
     <style>
+        #top-right-text {
+            position: absolute;
+            top: 140px; 
+            left: 900px; 
+            right: 60px;
+            border: 3px solid #ADD8E6; 
+            padding: 10px; 
+            background-color: white;
+            font-family: "EB Garamond", serif;
+            font-size: 18px;
+        }
+
+        #subtitle {
+            text-align: center;
+            font-family: "Whisper", cursive;
+            font-size: 28px;
+        }
+
+        #crime-title {
+            font-family: "Whisper", cursive;
+            font-weight: bold;
+            margin-left: 15px;
+        }
+
+        #crime-info {
+            font-family: "EB Garamond", serif;
+            font-size: 21px;
+            margin-left: 15px;
+        }
+
         .container {
             display: flex;
             flex-direction: column;
@@ -155,11 +186,15 @@
             display: flex;
             width: 100%;
             margin: 10px;
+            margin-left: 100px;
         }
 
         .map-info {
             display: flex;
             width: 50%;
+            border: 3px solid #ADD8E6;
+            padding: 20px;
+            background-color: white;
         }
 
         .map-svg {

@@ -17,13 +17,13 @@
 	  flex-direction: column;
 	  justify-content: center;
 	  align-items: center;
-	  height: 100vh; /* Set to 100% of the viewport height */
+	  height: 100vh; 
 	}
   
 	.intro_text {
-	  font-size: 20px; /* Adjust the font size as needed */
+	  font-size: 20px;
 	  text-align: center;
 	  font-family: 'Montserrat', sans-serif;
-	  margin-bottom: 20px; /* Add space between h1 and button */
+	  margin-bottom: 20px;
 	}
 </style>

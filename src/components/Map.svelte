@@ -232,13 +232,14 @@ function updatePieChart(newPieData) {
 }
 </script>
 
+<h1 id="subtitle">Crime Breakdown by Location</h1>
+
 <div id='container'>
   <div id="map-container">
     <div id="map" class="map"></div>
   </div>
   <div id="info-text-container">
-    <div id="top-right-text" 
-        style="position: absolute; top: 120px; left: 770px; right: 60px; font-size: 16px; border: 1px solid #ccc; padding: 10px;">
+    <div id="top-right-text">
             Now we would like to know where these crimes and disruptions occur, so we have a better idea of what areas
             might be more or less dangerous than others. To the left we have an interactive map that can be dragged around to look at
             different areas. The circles show areas where crimes occur, with the size corresponding to how many incidents have occurred.
@@ -251,6 +252,24 @@ function updatePieChart(newPieData) {
 </div>
 
 <style>
+  #subtitle {
+    font-size: 28px;
+    font-family: "Whisper", cursive;
+    margin-left: 180px;
+  }
+
+  #top-right-text {
+      position: absolute;
+      top: 140px; 
+      left: 780px; 
+      right: 60px;
+      border: 3px solid #ADD8E6; 
+      padding: 10px; 
+      background-color: white;
+      font-family: "EB Garamond", serif;
+      font-size: 18px;
+    }
+
   .map {
     width: 700px;
     height: 500px;

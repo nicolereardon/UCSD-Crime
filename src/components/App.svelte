@@ -179,13 +179,24 @@
 </main>
 
 <style>
+
+  h1 {
+    font-family: "Whisper", cursive;
+  }
+
+  .mainpages {
+    background-color: #FDB0C0;
+    padding: 20px; 
+  }
+
   .info-box {
+    background-color: #FFF0F3;
     margin-top: 20px;
     margin-bottom: 50px;
     margin-left: 20px;
     margin-right: 20px;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 2px solid black;
   }
 
   .intro_page {
@@ -193,23 +204,31 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Set to 100% of the viewport height */
+    height: 100vh;
   }
 
   .intro_text {
-    font-size: 2em; /* Adjust the font size as needed */
+    font-size: 2em;
     text-align: center;
-    margin-bottom: 20px; /* Add space between h1 and button */
+    margin-bottom: 20px;
   }
 
   .button-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px; /* Adjust as needed */
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; 
   }
 
   .button-container button {
-  margin-right: 5px; /* Adjust as needed */
+    margin-right: 5px;
+    background-color: #ADD8E6;
+    border-radius: 20px;
+    font-size: 1em;
+    font-family: "Whisper", cursive;
+  }
+
+  .button-container button:hover {
+    background-color: white;
   }
 
   .learn_more_button {
