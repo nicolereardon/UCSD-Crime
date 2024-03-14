@@ -126,7 +126,7 @@
   }
 </script>
 
-<main on:click={incrementpage}>
+<main>
   {#if showIntro}
     <div in:fade={{ duration: 500, delay: 0 }} out:fade={{ duration: 250, delay: 0 }} class = "intro_page">
       <h1 class="intro_text">Want to stay safe at UCSD?</h1>
