@@ -185,17 +185,18 @@ const features = map_data.map(d => {
   #info-text-container {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Align items to the center horizontally */
+    align-items: center; 
   }
 
   #top-right-text {
-    margin-top: 10px; /* Add margin to separate from the map */
+    margin-top: -50px;
+    margin-bottom: 30px;
     border: 3px solid #ADD8E6;
     padding: 10px;
     background-color: white;
     font-family: 'Lato', sans-serif;
             line-height: 1.3;
     font-size: 18px;
-    max-width: 700px; /* Limit the maximum width of the text box */
+    max-width: 700px;
   }
 </style>
