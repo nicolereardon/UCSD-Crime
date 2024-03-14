@@ -7,9 +7,6 @@
     let crimeData = [];
     let barData = [];
 
-
-    //We will def def want to change what I have below to reflect what we actually want, using this simply as a placeholder
-    //also still has blank value lol
     let crimeText = {
     'Burglary': 'Burglary is a crime of breaking and entering a building illegally with the intent to commit a crime, typically theft.',
     'Arson': 'Arson involves intentionally setting fire to property, often with criminal intent.',

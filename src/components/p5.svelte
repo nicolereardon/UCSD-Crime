@@ -131,7 +131,6 @@
                         <span>- {crime}</span><br>
                     {/each}
                 </p>
-                <!-- Add more content as needed -->
             </div>
         </div>
     </div>
