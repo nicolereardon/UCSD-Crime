@@ -13,11 +13,11 @@
             <foreignObject x="5%" y="23%" width="90%" height="100%">
                 <div class="conclusion">
                     <h1>
-                        The existing Timely Alerts offer swift reactions to crucial occurrences <span class="highlight"> and </span>
+                        The existing Timely Alerts offer swift responses to dangerous occurrences <span class="highlight"> and </span>
                         provide students and faculty with vital details regarding said events.
-                        <span class="highlight"> However</span>, the counterintuitive layout complicates information retrieval, 
-                        posing a risk to user safety. <span class="highlight"> Therefore</span>, we propose enhancements to the current
-                        design alongside visual aids to empower users in forming nuanced perspectives.
+                        <span class="highlight"> However</span>, the lack of visuals and additional information may leave users confused. 
+                        <span class="highlight"> Therefore</span>, we propose enhancements to the current
+                        design, including visual aids to empower users in making informed decisions.
                     </h1>
                 </div>
             </foreignObject>

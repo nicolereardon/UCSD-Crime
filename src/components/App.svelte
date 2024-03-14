@@ -140,7 +140,7 @@
   {:else}
   <div in:fade={{ duration: 250, delay: 1000 }} class = "mainpages">
     <h1>UCSD's Triton Alerts</h1>
-    <h3 class="note">* to progress use keyboard arrows or click anywhere</h3>
+    <h3 class="note"><em>* to progress use keyboard arrows or click anywhere</em></h3>
     <h3 class="page_number">Page {counter}</h3>
 
     {#if counter < 1}
