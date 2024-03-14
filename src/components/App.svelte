@@ -140,6 +140,8 @@
   {:else}
   <div in:fade={{ duration: 250, delay: 1000 }} class = "mainpages">
     <h1>UCSD's Triton Alerts</h1>
+    <h3 class="note">* to progress use keyboard arrows or click anywhere</h3>
+    <h3 class="page_number">Page {counter}</h3>
 
     {#if counter < 1}
       <h1>We might not need this page but just in case</h1>
@@ -251,5 +253,19 @@
 
   .learn_more_button:hover {
     background-color: #ADD8E6;
+  }
+
+  .note {
+    position: absolute;
+    margin-top: -30px;
+    margin-left: 800px;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .page_number {
+    position: absolute;
+    margin-top: -80px;
+    margin-left: 1270px;
+    font-family: 'Roboto', sans-serif;
   }
 </style>
