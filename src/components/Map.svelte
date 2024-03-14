@@ -32,7 +32,6 @@
 		
     map.on("load", () => {
       addCircleLayer();
-      updatePieChart(pieData);
     });
   });
 
@@ -104,132 +103,42 @@ const features = map_data.map(d => {
 
   // Add a hover effect to display pie chart on circle hover
   map.on("mouseenter", "circleLayer", (e) => {
-  const features = map.queryRenderedFeatures(e.point, { layers: ["circleLayer"] });
+      const features = map.queryRenderedFeatures(e.point, { layers: ["circleLayer"] });
 
-  if (features.length > 0) {
-    const feature = features[0];
-    console.log("Hovered Feature:", feature);
+      if (features.length > 0) {
+        const feature = features[0];
+        console.log("Hovered Feature:", feature);
 
-    // Add these console logs to check the map_group and AlertCategory
-    console.log("Hovered Map Group:", feature.properties.map_group);
-    console.log("Alert Category:", feature.properties.AlertCategory);
+        const mapGroup = feature.properties.map_group;
+        console.log("Hovered Map Group:", mapGroup);
 
-    showPieChart(feature.properties.map_group);
+        showPieChart(mapGroup);
+      }
+    });
+
+    map.on("mouseleave", "circleLayer", () => {
+      hidePieChart();
+    });
   }
-});
 
-  // Reset the pie chart when mouse leaves the circle
-  map.on("mouseleave", "circleLayer", () => {
-    hidePieChart();
-  });
-}
-
-  function showPieChart(map_group) {
-  if (currentMapGroup !== map_group) {
-    // Update the pie chart only if the hovered map group is different
-    currentMapGroup = map_group;
-
-    // Filter data for the specific map group from the original data
-    const filteredData = data.filter(d => d.MapGroup === map_group);
-
-    // Now you can create the pie chart based on the filtered data
-    const filteredPieData = d3.rollup(filteredData, v => v.length, d => d['CrimeCategory']);
-    const pieData = Array.from(filteredPieData, ([category, count]) => ({ category, count }));
-
-    // Update the pie chart with the new data
-    updatePieChart(pieData);
-
-    console.log("Show Pie Chart for Map Group:", map_group);
+  function showPieChart(mapGroup) {
+    const imageUrl = `${mapGroup}.png`; // Assuming your PNG files are named after MapGroup categories
+    // Update the src attribute of the image
+    const imgElement = document.getElementById("pie-chart-image");
+    if (imgElement) {
+      imgElement.src = imageUrl;
+    }
+    console.log("Show PNG Image for Map Group:", mapGroup);
   }
-}
 
   function hidePieChart() {
-    // Reset the pie chart when mouse leaves the circle
-    currentMapGroup = null;
-    updatePieChart(pieData); // Reset to the overall crime breakdown
-
-    console.log("Hide/Reset Pie Chart");
-  }
-
-function createPieChart(pieData) {
-    const margin = { top: 20, right: 20, bottom: 20, left: 20 };
-    const width = 400;
-    const height = 450;
-    const mapContainer = document.getElementById('map');
-    const mapContainerRect = mapContainer.getBoundingClientRect();
-    console.log(height);
-
-    // Check if there's an existing SVG, remove it if present
-    if (svg) {
-        d3.select('#pie-chart-container svg').remove();
+    // Reset or hide the displayed PNG image
+    const imgElement = document.getElementById("pie-chart-image");
+    if (imgElement) {
+      imgElement.src = "main_chart.png"; // Reset the src attribute
     }
-
-    svg = d3
-        .select('#pie-chart-container')
-        .append('svg')
-        .attr('width', width + margin.left + margin.right)
-        .attr('height', height + margin.top + margin.bottom)
-        .append('g')
-        .attr('transform', `translate(${175},${375})`); // Center the pie chart
-
-    // Create a pie chart layout
-    const pie = d3.pie().value(d => d.count);
-
-    // Define an arc generator
-    const arc = d3.arc().outerRadius(100).innerRadius(0);
-
-    // Generate pie chart slices
-    const arcs = svg
-        .selectAll('arc')
-        .data(pie(pieData));
-
-    console.log('Number of pie slices:', pieData.length);
-
-    // Enter
-    const enterSelection = arcs
-        .enter()
-        .append('g')
-        .attr('class', 'arc');
-
-    enterSelection
-      .append('path')
-      .attr('d', arc)
-      .attr('fill', (d, i) => colorScale(i)); // Assign colors based on index
-
-    enterSelection
-      .append('text')
-      .attr('transform', d => `translate(${arc.centroid(d)})`)
-      .attr('dy', '0.35em')
-      .attr('text-anchor', 'middle')
-      .text(d => d.data.category)
-      .style('fill', 'black'); // Text color
-
-    // Update
-    arcs
-        .select('path')
-        .transition() // Add transition for a smoother update
-        .attr('d', arc);
-
-    arcs
-        .select('text')
-        .transition()
-        .attr('transform', d => `translate(${arc.centroid(d)})`);
-
-    // Exit
-    arcs
-        .exit()
-        .remove();
-}
-
-function updatePieChart(newPieData) {
-    console.log("Entering updatePieChart. New Pie Data:", newPieData);
-
-    // Call the createPieChart function with the updated data
-    createPieChart(newPieData);
-
-    console.log('Number of pie slices:', newPieData.length);
-    console.log("Exiting updatePieChart.");
-}
+    console.log("Hide/Reset PNG Image");
+  }
 </script>
 
 <h1 id="subtitle">Crime Breakdown by Location</h1>
@@ -240,14 +149,15 @@ function updatePieChart(newPieData) {
   </div>
   <div id="info-text-container">
     <div id="top-right-text">
-            Now we would like to know where these crimes and disruptions occur, so we have a better idea of what areas
-            might be more or less dangerous than others. To the left we have an interactive map that can be dragged around to look at
-            different areas. The circles show areas where crimes occur, with the size corresponding to how many incidents have occurred.
-            To the right of the map we have a pie chart that breaks down the types of crimes that have occured. When no dot is
-            being hovered this shows a breakdown of all the crimes, and while a dot is hovered it shows a breakdown of just the crimes
-            for that area.
+      Now we would like to know where these crimes and disruptions occur, so we have a better idea of what areas
+      might be more or less dangerous than others. To the left we have an interactive map that can be dragged around to look at
+      different areas. The circles show areas where crimes occur, with the size corresponding to how many incidents have occurred.
+      To the right of the map we have a pie chart that breaks down the types of crimes that have occurred. When no dot is
+      being hovered this shows a breakdown of all the crimes, and while a dot is hovered it shows a breakdown of just the crimes
+      for that area.
     </div>
-    <div id="pie-chart-container"></div>
+    <!-- Add an image element for displaying the PNG -->
+    <img src="main_chart.png" alt="Pie Chart" id="pie-chart-image" style="width: 500px; height: 400px;">
   </div>
 </div>
 
@@ -258,39 +168,33 @@ function updatePieChart(newPieData) {
     margin-left: 180px;
   }
 
-  #top-right-text {
-      position: absolute;
-      top: 140px; 
-      left: 780px; 
-      right: 60px;
-      border: 3px solid #ADD8E6; 
-      padding: 10px; 
-      background-color: white;
-      font-family: "EB Garamond", serif;
-      font-size: 18px;
-    }
-
   .map {
     width: 700px;
     height: 500px;
   }
 
+  #container {
+    display: flex;
+    align-items: flex-start; /* Align items to the top */
+  }
+
+  #map-container {
+    margin-right: 20px; /* Add some spacing between the map and the pie chart */
+  }
+
   #info-text-container {
     display: flex;
     flex-direction: column;
-    margin-right: 20px;
+    align-items: center; /* Align items to the center horizontally */
   }
 
-  #pie-chart-container {
-    width: 200px;
-    height: 100px;
+  #top-right-text {
+    margin-top: 20px; /* Add margin to separate from the map */
+    border: 3px solid #ADD8E6;
+    padding: 10px;
+    background-color: white;
+    font-family: "EB Garamond", serif;
+    font-size: 18px;
+    max-width: 700px; /* Limit the maximum width of the text box */
   }
-
-  #container {
-    display: flex;
-    width: 100%;
-    height: 500px;
-  }
-
-  
 </style>
