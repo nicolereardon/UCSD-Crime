@@ -204,7 +204,7 @@
     {/if}
     <div id='container'>
         <!-- Slider UI -->
-        <div class="slider-container">
+        <div class="slider-container" on:click|stopPropagation={() => {}}>
             <label for="quarter-slider">Quarter: </label>
             <input
                 id="quarter-slider"
