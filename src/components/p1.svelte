@@ -23,7 +23,7 @@
 	.intro_text {
 	  font-size: 20px;
 	  text-align: center;
-	  font-family: 'Montserrat', sans-serif;
+	  font-family: 'Roboto', sans-serif;
 	  margin-bottom: 20px;
 	}
 </style>

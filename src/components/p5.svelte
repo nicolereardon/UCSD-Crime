@@ -153,18 +153,19 @@
             border: 3px solid #ADD8E6; 
             padding: 10px; 
             background-color: white;
-            font-family: "EB Garamond", serif;
+            font-family: 'Lato', sans-serif;
+            line-height: 1.3;
             font-size: 18px;
         }
 
         #subtitle {
-            text-align: center;
-            font-family: "Whisper", cursive;
             font-size: 28px;
+            font-family: 'Roboto', sans-serif;
+            margin-left: 180px;
         }
 
         #crime-title {
-            font-family: "Whisper", cursive;
+            font-family: 'Roboto', sans-serif;
             font-weight: bold;
             margin-left: 15px;
         }

@@ -126,7 +126,7 @@
   }
 </script>
 
-<main>
+<main on:click={incrementpage}>
   {#if showIntro}
     <div in:fade={{ duration: 500, delay: 0 }} out:fade={{ duration: 250, delay: 0 }} class = "intro_page">
       <h1 class="intro_text">Want to stay safe at UCSD?</h1>
@@ -181,7 +181,7 @@
 <style>
 
   h1 {
-    font-family: "Whisper", cursive;
+    font-family: 'Roboto', sans-serif;
   }
 
   .mainpages {
@@ -224,7 +224,7 @@
     background-color: #ADD8E6;
     border-radius: 20px;
     font-size: 1em;
-    font-family: "Whisper", cursive;
+    font-family: 'Roboto', sans-serif;
   }
 
   .button-container button:hover {
@@ -238,7 +238,7 @@
     border-radius: 25px; 
     padding: 10px 20px; 
     font-size: 1.2em; 
-    font-family: "Whisper", cursive;
+    font-family: 'Roboto', sans-serif;
     cursor: pointer;
   }
 

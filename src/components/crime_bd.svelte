@@ -56,7 +56,7 @@
     function createBarChart(barData) {
         const margin = { top: 30, right: 30, bottom: 150, left: 60 };
         const width = 1300 - margin.left - margin.right;
-        const height = 650 - margin.top - margin.bottom;
+        const height = 550 - margin.top - margin.bottom;
 
         // Check if there's an existing SVG, remove it if present
         if (svg) {
@@ -152,10 +152,10 @@
 
 <style>
     #subtitle {
-        text-align: center;
         font-size: 28px;
-        font-family: "Whisper", cursive;
-    }  
+        font-family: 'Roboto', sans-serif;
+        margin-left: 180px;
+    }
 
     .tooltip {
         position: absolute;
@@ -176,7 +176,8 @@
         border: 3px solid #ADD8E6; 
         padding: 10px; 
         background-color: white;
-        font-family: "EB Garamond", serif;
+        font-family: 'Lato', sans-serif;
+            line-height: 1.3;
         font-size: 18px;
     }
 </style>
