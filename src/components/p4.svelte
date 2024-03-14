@@ -56,26 +56,23 @@
     // });
 
     function addCircleLayer() {
-        const filteredData = data.filter(d => (d.coords !== "") && (d.Update === ""));
+        const filteredData = data.filter(d => (d.coords !== "") && (d.Update === "") && (d.quarter === selectedQuarter));
+        const locationData = d3.rollup(filteredData, v => v.length, d => d['MapGroup']);
+        const map_data = Array.from(locationData, ([map_group, count]) => {
+        const groupData = filteredData.find(d => d['MapGroup'] === map_group);
 
-        const locationData = d3.rollup(filteredData, v => v.length, d => d['MapGroup'], d => d['quarter']);
-        const map_data = Array.from(locationData, ([map_group, quartersMap]) => {
-            const groupData = filteredData.find(d => d['MapGroup'] === map_group);
-
-            if (groupData) {
-                const quarterData = Array.from(quartersMap).find(([quarter, count]) => quarter === selectedQuarter);
-                return {
-                    map_group,
-                    quarters: quarterData ? [{ quarter: selectedQuarter, count: quarterData[1] }] : [], // Adjust the structure as needed
-                    latitude: +groupData.latitude,
-                    longitude: +groupData.longitude,
-                    AlertCategory: groupData.AlertCategory,
-                    count: quarterData ? quarterData[1] : 0 // Get count for 'WI2024'
-                };
-            } else {
-                // console.error(`No data found for map_group ${map_group}`);
-                return null;
-            }
+        if (groupData) {
+            return {
+                map_group,
+                count,
+                latitude: +groupData.latitude,
+                longitude: +groupData.longitude,
+                AlertCategory: groupData.AlertCategory
+            };
+        } else {
+            console.error(`No data found for map_group ${map_group}`);
+            return null;
+        }
         }).filter(entry => entry !== null);
 
         const features = map_data.map(d => {
@@ -85,7 +82,6 @@
                     properties: {
                         map_group: d.map_group,
                         count: d.count,
-                        AlertCategory: d.AlertCategory
                     },
                     geometry: {
                         type: "Point",
@@ -115,8 +111,8 @@
                         "interpolate",
                         ["linear"],
                         ["get", "count"],
-                        0, 6,
-                        d3.max(map_data, d => d.count), d3.max(map_data, d => d.count) * 6
+                        0, 3,
+                        d3.max(map_data, d => d.count), d3.max(map_data, d => d.count) * 4
                     ],
                 "circle-color": "steelblue",
                 "circle-opacity": 0.7
@@ -125,35 +121,60 @@
     }
 
     function updateCircleLayer() {
-        // Remove existing layer and source
+        // Remove existing layer
         if (map.getLayer('circleLayer')) {
             map.removeLayer('circleLayer');
         }
+        if (map.getSource("mapGroups")) {
+            map.removeSource("mapGroups");
+        }
         hideNone()
-
-        const filteredData = data.filter(d => (d.coords !== "") && (d.Update === ""));
-        const locationData = d3.rollup(filteredData, v => v.length, d => d['MapGroup'], d => d['quarter']);
-        const map_data = Array.from(locationData, ([map_group, quartersMap]) => {
+        const filteredData = data.filter(d => (d.coords !== "") && (d.Update === "") && (d.quarter === selectedQuarter));
+        const locationData = d3.rollup(filteredData, v => v.length, d => d['MapGroup']);
+        const map_data = Array.from(locationData, ([map_group, count]) => {
         const groupData = filteredData.find(d => d['MapGroup'] === map_group);
 
         if (groupData) {
-                const quarterData = Array.from(quartersMap).find(([quarter, count]) => quarter === selectedQuarter);
-                console.log(quarterData)
+            return {
+                map_group,
+                count,
+                latitude: +groupData.latitude,
+                longitude: +groupData.longitude,
+                AlertCategory: groupData.AlertCategory
+            };
+        } else {
+            console.error(`No data found for map_group ${map_group}`);
+            return null;
+        }
+        }).filter(entry => entry !== null);
+
+        const features = map_data.map(d => {
+            if (!isNaN(d.latitude) && !isNaN(d.longitude)) {
                 return {
-                    map_group,
-                    quarters: quarterData ? [{ quarter: selectedQuarter, count: quarterData[1] }] : [], // Adjust the structure as needed
-                    latitude: +groupData.latitude,
-                    longitude: +groupData.longitude,
-                    AlertCategory: groupData.AlertCategory,
-                    count: quarterData ? quarterData[1] : 0 // Get count for 'WI2024'
+                    type: "Feature",
+                    properties: {
+                        map_group: d.map_group,
+                        count: d.count,
+                    },
+                    geometry: {
+                        type: "Point",
+                        coordinates: [d.longitude, d.latitude]
+                    }
                 };
             } else {
-                // console.error(`No data found for map_group ${map_group}`);
+                // console.error(`Invalid coordinates for map_group ${d.map_group}`);
                 return null;
+            }
+        }).filter(feature => feature !== null);
+
+        map.addSource("mapGroups", {
+            type: "geojson",
+            data: {
+                type: "FeatureCollection",
+                features: features
             }
         });
 
-        // console.log(map_data)
         if (map_data.some(entry => entry.count !== 0)) {
             map.addLayer({
                 id: "circleLayer",
@@ -164,8 +185,8 @@
                         "interpolate",
                         ["linear"],
                         ["get", "count"],
-                        0, 6,
-                        d3.max(map_data, d => d.count), d3.max(map_data, d => d.count) * 6
+                        0, 3,
+                        d3.max(map_data, d => d.count), d3.max(map_data, d => d.count) * 4
                     ],
                     "circle-color": "steelblue",
                     "circle-opacity": 0.7
