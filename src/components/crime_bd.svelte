@@ -129,7 +129,7 @@
     // Position the tooltip slightly to the right of the mouse
     const [x, y] = d3.pointer(event);
     tooltip.style.left = x + 10 + 'px';
-    tooltip.style.top = y + 'px';
+    tooltip.style.top = 400 + 'px';
 
     // Update tooltip content based on the hovered data
     tooltip.innerHTML = `<strong>${d.crime}</strong>: ${d.count} occurrences<br>${crimeText[d.crime] || 'Description not available'}`;
