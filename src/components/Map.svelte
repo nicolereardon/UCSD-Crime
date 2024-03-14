@@ -96,7 +96,7 @@ const features = map_data.map(d => {
         0, 5,
         d3.max(map_data, d => d.count), 20
       ],
-      "circle-color": "steelblue",
+      "circle-color": "red",
       "circle-opacity": 0.7
     }
   });

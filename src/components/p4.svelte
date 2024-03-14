@@ -114,7 +114,7 @@
                         0, 3,
                         d3.max(map_data, d => d.count), d3.max(map_data, d => d.count) * 4
                     ],
-                "circle-color": "steelblue",
+                "circle-color": "red",
                 "circle-opacity": 0.7
             }
         });
@@ -188,7 +188,7 @@
                         0, 3,
                         d3.max(map_data, d => d.count), d3.max(map_data, d => d.count) * 4
                     ],
-                    "circle-color": "steelblue",
+                    "circle-color": "red",
                     "circle-opacity": 0.7
                 }
             });
@@ -264,7 +264,7 @@
         top: 450px; 
         left: 300px; 
         right: 900px;
-        border: 3px solid #ADD8E6; 
+        border: 3px solid #e69393; 
         padding: 10px; 
         background-color: white;
         font-family: 'Roboto', sans-serif;

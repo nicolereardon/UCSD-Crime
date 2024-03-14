@@ -139,7 +139,7 @@
     </div>
   {:else}
   <div in:fade={{ duration: 250, delay: 1000 }} class = "mainpages">
-    <h1>UCSD's Timely Warnings</h1>
+    <h1>UCSD's Triton Alerts</h1>
 
     {#if counter < 1}
       <h1>We might not need this page but just in case</h1>

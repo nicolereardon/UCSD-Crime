@@ -88,7 +88,7 @@
           0, 5,
           d3.max(map_data, d => d.count), 30
         ],
-        "circle-color": "steelblue",
+        "circle-color": "red",
         "circle-opacity": 0.7
       }
     });
