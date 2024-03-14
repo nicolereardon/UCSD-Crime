@@ -165,7 +165,7 @@ const features = map_data.map(d => {
   #subtitle {
         font-size: 28px;
         font-family: 'Roboto', sans-serif;
-        margin-left: 180px;
+        margin-left: 50px;
     }
 
   .map {

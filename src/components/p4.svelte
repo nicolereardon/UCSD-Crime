@@ -220,7 +220,7 @@
     
     {#if showError}
         <div id="no-alert">
-            No Triton Alerts reported in this quarter.
+            No location-specific Triton Alerts reported in this quarter.
         </div>
     {/if}
     <div id='container'>
@@ -248,8 +248,8 @@
 <style>
     #top-right-text {
         position: absolute;
-        top: 340px; 
-        left: 870px; 
+        top: 140px; 
+        left: 970px; 
         right: 60px;
         border: 3px solid #ADD8E6; 
         padding: 10px; 
@@ -263,7 +263,7 @@
         position: absolute;
         top: 450px; 
         left: 300px; 
-        right: 900px;
+        width: 500px;
         border: 3px solid #e69393; 
         padding: 10px; 
         background-color: white;
@@ -275,13 +275,14 @@
     #subtitle {
         font-size: 28px;
         font-family: 'Roboto', sans-serif;
-        margin-left: 180px;
+        margin-left: 50px;
     }
     .map {
-        position: left;
+        margin: 0 auto;
+        margin-left: 100px;
+        position: center;
         width: 800px;
         height: 500px;
-        margin-right: 20px; /* Adjust this value to move the map to the left */
     }
 
     #container {
@@ -291,6 +292,8 @@
     }
 
     .slider-container {
+        margin: 0 auto;
+        margin-left: 400px;
         margin-top: 20px;
         text-align: center;
     }

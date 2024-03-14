@@ -160,7 +160,7 @@
         #subtitle {
             font-size: 28px;
             font-family: 'Roboto', sans-serif;
-            margin-left: 180px;
+            margin-left: 50px;
         }
 
         #crime-title {
