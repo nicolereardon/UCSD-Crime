@@ -10,9 +10,15 @@
         <svg class="map-svg" viewBox="0 0 800 400">
             <!-- Embed the map image here -->
             <image href={`https://api.mapbox.com/styles/v1/mapbox/light-v11/static/${input_center[0]},${input_center[1]},13,0,0/400x400?access_token=pk.eyJ1Ijoia3NrYW5la28iLCJhIjoiY2xzZm4ycm01MGtjYTJqcHFsMXl1enNjcCJ9.20jJnxwrWnDVKl-EZOGVew`} width="100%" height="100%" />
-            <foreignObject x="39%" y="38%" width="100%" height="100%">
+            <foreignObject x="28%" y="0%" width="45%" height="100%">
                 <div class="conclusion">
-                    <h1>Bye Bye Crime</h1>
+                    <h1>
+                        The existing Timely Alerts offer swift reactions to crucial occurrences AND
+                        provide students and faculty with vital details regarding said events.
+                        HOWEVER, the counterintuitive layout complicates information retrieval, 
+                        posing a risk to user safety. THEREFORE, we propose enhancements to the current
+                        design alongside visual aids to empower users in forming nuanced perspectives.
+                    </h1>
                 </div>
             </foreignObject>
         </svg>
@@ -34,5 +40,6 @@
         position: absolute;
         text-align: center;
         z-index: 1;
+        font-size: 12px;
     }
 </style>
