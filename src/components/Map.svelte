@@ -157,7 +157,7 @@ const features = map_data.map(d => {
       for that area.
     </div>
     <!-- Add an image element for displaying the PNG -->
-    <img src="main_chart.png" alt="Pie Chart" id="pie-chart-image" style="width: 350px; height: 300px;">
+    <img src="main_chart.png" alt="Pie Chart" id="pie-chart-image" style="width: 500px; height: 350px;">
   </div>
 </div>
 
