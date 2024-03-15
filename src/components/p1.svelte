@@ -3,9 +3,9 @@
 </script>
 
 <div class= "intro_page">
-    <h1 class="intro_text">In the National Council for Home and Safety and Security’s 2022 Safest College Campuses in the United States report, 
+    <h1 class="intro_text">In the National Council for Home and Safety and Security’s <a href="https://www.alarms.org/safest-colleges/" target="_blank">2022 Safest College Campuses</a> in the United States report, 
 		the University of California, San Diego was ranked 476th out of 490 colleges. 
-		However, San Diego was ranked the 95th safest city out of 3,381 in California in their 2021 Safest Cities in California report. 
+		However, San Diego was ranked the 95th safest city out of 3,381 in California in their <a href="https://www.alarms.org/safest-cities-in-california/" target="_blank">2021 Safest Cities</a> in California report. 
 		<span class="hook"> Of the 10 UCs, UCSD places 8th in safety but is in the 2nd safest city </span>.</h1>
 	<img src='safety.png' alt="Safety Rankings">
 	<h2 class="question">What does UCSD do about crime on campus?</h2>

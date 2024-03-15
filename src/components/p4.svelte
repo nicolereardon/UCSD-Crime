@@ -256,10 +256,13 @@
             <div class = "charts">
                 <img src="by_quarter.png" alt="Chart" id="by_quarter" style="width: 160px; height: 440px;">
             </div>
+
+            <h4 style="position: absolute; left: 1200px; top: 260px;">BY : Quarter</h4>
         {:else}
             <div class = "charts">
                 <img src="by_count.png" alt="Chart" id="by_count" style="width: 160px; height: 440px;">
             </div>
+            <h4 style="position: absolute; left: 1200px; top: 260px;">BY : Count</h4>
         {/if}
     </div>
 </main>
@@ -268,7 +271,7 @@
     #top-right-text {
         position: absolute;
         top: 140px; 
-        left: 970px; 
+        left: 800px; 
         right: 60px;
         border: 3px solid #ADD8E6; 
         padding: 10px; 
@@ -307,23 +310,41 @@
     .charts {
         position: absolute;
         top: 280px; 
-        left: 970px;
+        left: 1000px;
     }
 
     .button1 {
         position: absolute;
-        top: 540px; 
-        left: 1170px;
-        width: 80px;
+        top: 480px; 
+        left: 1200px;
+        width: 90px;
         height: 30px;
+        
+        background-color: #FDB0C0;
+        border-radius: 20px;
+        font-size: 0.9em;
+        font-family: 'Roboto', sans-serif;
     }
 
     .button2 {
         position: absolute;
-        top: 500px; 
-        left: 1170px;
-        width: 80px;
+        top: 440px; 
+        left: 1200px;
+        width: 90px;
         height: 30px;
+
+        background-color: #FDB0C0;
+        border-radius: 20px;
+        font-size: 0.9em;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .button1:hover {
+    background-color: #ADD8E6;
+    }
+
+    .button2:hover {
+    background-color: #ADD8E6;
     }
 
     #container {
