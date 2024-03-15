@@ -7,6 +7,7 @@
     export let data;
     let sliderValue = 20;
     let showError = false;
+    let by_quarter = false;
     let selectedQuarter = 'WI2024';
     // let quarters = ['WI2019', 'SP2019', 'SU2019', 'FA2019', 'WI2020', 'SU2020', 'FA2020', 'WI2021', 'SU2021', 'FA2021', 'WI2022', 'SP2022', 'SU2022', 'FA2022', 'WI2023', 'SP2023', 'SU2023', 'FA2023', 'WI2024'];
     let qvals = {
@@ -204,29 +205,34 @@
     function hideNone() {
         showError = false;
     }
+
+    function to_quarter() {
+        by_quarter = true;
+    }
+    
+    function to_count() {
+        by_quarter = false;
+    }
 </script>
 
 <main>
     <h1 id="subtitle">Crime Breakdown by Quarter</h1>
 
-    <!-- <div id="gif">
-        <img src='pg4gif.gif' alt="Crimes Over Time" style="width: 60%; height: auto;"/>
-    </div> -->
     <div id="top-right-text" >
         In addition to understand where crimes occur, you may also be curious of when. By taking a look at how this disruption of
         crimes has changed overtime, we are able to understand what areas are becoming more or less safe.
     </div>
-    <!-- Error message div -->
-    
+
     {#if showError}
         <div id="no-alert">
             No location-specific Triton Alerts reported in this quarter.
         </div>
     {/if}
+
     <div id='container'>
         <!-- Slider UI -->
         <div class="slider-container" on:click|stopPropagation={() => {}}>
-            <label for="quarter-slider">Quarter: </label>
+            <label for="quarter-slider">Quarter:</label>
             <input
                 id="quarter-slider"
                 type="range"
@@ -241,7 +247,20 @@
             />
             <span>{selectedQuarter}</span>
         </div>
+
         <div id="map" class="map"></div>
+        <button class = "button1" type="button" on:click={to_quarter} on:click|stopPropagation={() => {}}> By Quarter </button>
+        <button class = "button2" type="button" on:click={to_count} on:click|stopPropagation={() => {}}> By Count </button>
+
+        {#if by_quarter}
+            <div class = "charts">
+                <img src="by_quarter.png" alt="Chart" id="by_quarter" style="width: 160px; height: 440px;">
+            </div>
+        {:else}
+            <div class = "charts">
+                <img src="by_count.png" alt="Chart" id="by_count" style="width: 160px; height: 440px;">
+            </div>
+        {/if}
     </div>
 </main>
 
@@ -283,6 +302,28 @@
         position: center;
         width: 800px;
         height: 500px;
+    }
+
+    .charts {
+        position: absolute;
+        top: 280px; 
+        left: 970px;
+    }
+
+    .button1 {
+        position: absolute;
+        top: 540px; 
+        left: 1170px;
+        width: 80px;
+        height: 30px;
+    }
+
+    .button2 {
+        position: absolute;
+        top: 500px; 
+        left: 1170px;
+        width: 80px;
+        height: 30px;
     }
 
     #container {
