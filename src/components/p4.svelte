@@ -220,7 +220,8 @@
 
     <div id="top-right-text" >
         In addition to understand where crimes occur, you may also be curious of when. By taking a look at how this disruption of
-        crimes has changed overtime, we are able to understand what areas are becoming more or less safe.
+        crimes has changed overtime, we are able to understand what areas are becoming more or less safe. On the right
+        we provide an overview of all of the data brokwn down by quarter, with its corresponding crime count.
     </div>
 
     {#if showError}
@@ -270,7 +271,7 @@
 <style>
     #top-right-text {
         position: absolute;
-        top: 140px; 
+        top: 120px; 
         left: 800px; 
         right: 60px;
         border: 3px solid #ADD8E6; 
