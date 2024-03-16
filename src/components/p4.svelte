@@ -272,7 +272,7 @@
     #top-right-text {
         position: absolute;
         top: 120px; 
-        left: 800px; 
+        left: 785px; 
         right: 60px;
         border: 3px solid #ADD8E6; 
         padding: 10px; 
